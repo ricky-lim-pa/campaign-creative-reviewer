@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/lib/apps";
 import { getApprovalStats } from "@/lib/stats";
+import { fetchCampaignList } from "@/lib/publicPath";
 import type { ApprovalAffirmation } from "@/lib/approvalAffirmations";
 
 type CampaignApiRow = {
@@ -65,9 +66,7 @@ export function CampaignCompleteModal({
     async function loadCampaigns() {
       setLoading(true);
       try {
-        const res = await fetch(`/api/campaigns?appId=${encodeURIComponent(appId)}`);
-        if (!res.ok) throw new Error("Could not load campaigns");
-        const rows = (await res.json()) as CampaignApiRow[];
+        const rows = (await fetchCampaignList(appId)) as CampaignApiRow[];
         if (cancelled) return;
 
         const mapped = rows

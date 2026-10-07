@@ -5,6 +5,13 @@ import { AppIcon } from "@/components/AppIcon";
 import { CampaignListTable } from "@/components/CampaignListTable";
 import { getApp } from "@/lib/apps";
 import { prisma, ensureSettings } from "@/lib/db";
+import { appStaticParams } from "@/lib/staticParams";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return appStaticParams();
+}
 
 export default async function AppCampaignsPage({
   params,

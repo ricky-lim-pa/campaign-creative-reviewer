@@ -7,6 +7,7 @@ import { ApproverSignOffButton, DualApprovalBadge } from "./StatusBadge";
 import { useApproverSignOff } from "@/hooks/useApproverSignOff";
 import { ApprovalCelebrationModal } from "./ApprovalCelebrationModal";
 import { pickRandomAffirmation, type ApprovalAffirmation } from "@/lib/approvalAffirmations";
+import { withBasePath } from "@/lib/publicPath";
 
 type Version = {
   id: string;
@@ -176,7 +177,7 @@ export function MockupCard({
         {activeVersion.imagePath ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={activeVersion.imagePath}
+            src={withBasePath(activeVersion.imagePath)}
             alt={`${displayTitle} mockup`}
             className="hub-work-card__image"
           />

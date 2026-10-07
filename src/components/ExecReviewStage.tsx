@@ -13,6 +13,7 @@ import { ApproverSignOffButton, DualApprovalBadge } from "./StatusBadge";
 import { useApproverSignOff } from "@/hooks/useApproverSignOff";
 import { ApprovalCelebrationModal } from "./ApprovalCelebrationModal";
 import { pickRandomAffirmation, type ApprovalAffirmation } from "@/lib/approvalAffirmations";
+import { withBasePath } from "@/lib/publicPath";
 
 type Version = {
   id: string;
@@ -583,8 +584,8 @@ export function ExecReviewStage({
         <div className="hub-theater__visual" ref={visualRef}>
           {canCompare && previousVersion?.imagePath && activeVersion.imagePath ? (
             <AssetCompareSlider
-              previousSrc={previousVersion.imagePath}
-              latestSrc={activeVersion.imagePath}
+              previousSrc={withBasePath(previousVersion.imagePath)}
+              latestSrc={withBasePath(activeVersion.imagePath)}
               previousLabel={`v${previousVersion.version}`}
               latestLabel={`v${activeVersion.version}`}
               alt={displayTitle}
@@ -595,13 +596,13 @@ export function ExecReviewStage({
               <AssetZoomViewer
                 key={`${mockupId}-${activeVersion.id}`}
                 assetKey={`${mockupId}-${activeVersion.id}`}
-                src={activeVersion.imagePath}
+                src={withBasePath(activeVersion.imagePath || "")}
                 alt={displayTitle}
                 onToggleFullscreen={toggleFullscreen}
                 isFullscreen={isFullscreen}
               />
             ) : (
-              <AssetStaticViewer src={activeVersion.imagePath} alt={displayTitle} />
+              <AssetStaticViewer src={withBasePath(activeVersion.imagePath || "")} alt={displayTitle} />
             )
           ) : (
             <div className="hub-theater__stage hub-theater__stage--empty">
