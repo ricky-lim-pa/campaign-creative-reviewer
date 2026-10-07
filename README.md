@@ -1,4 +1,4 @@
-# FP Campaign Hub
+# Campaign Creative Review
 
 Q4 creative review and KPI hub for FreePrints mobile apps. Executives review email, push, and in-app mockups with per-asset approval. You manage campaigns and assets via admin.
 

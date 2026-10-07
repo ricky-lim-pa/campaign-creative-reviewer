@@ -32,7 +32,7 @@ export function NavBar({
             href="/review"
             className="text-base font-semibold tracking-humaan-tight text-hub-ink md:text-lg"
           >
-            FP Campaign Hub
+            Campaign Creative Review
           </Link>
           {badge && <span className="hub-badge">{badge}</span>}
         </div>

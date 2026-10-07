@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FP Campaign Hub",
+  title: "Campaign Creative Review",
   description: "Q4 creative review and campaign KPI hub for FreePrints apps",
   robots: { index: false, follow: false },
 };
