@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Campaign {
+  id            String   @id @default(cuid())
+  appId         String
+  title         String
+  eventLabel    String   @default("")
+  region        String   @default("")
+  startDate     DateTime
+  endDate       DateTime
+  sendDate      DateTime
+  quarter       String   @default("Q4-2026")
+  notes         String?
+  reportUrl     String?
+  confluenceUrl String?
+  basecampUrl   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  mockups Mockup[]
+  kpi     CampaignKpi?
+}
+
+model Mockup {
+  id         String   @id @default(cuid())
+  campaignId String
+  type       String // email | push | in-app
+  label      String   @default("")
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  campaign Campaign        @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  versions MockupVersion[]
+}
+
+model MockupVersion {
+  id         String   @id @default(cuid())
+  mockupId   String
+  version    Int
+  imagePath  String?
+  copyBlocks String   @default("[]") // JSON: [{ label, value }]
+  subject    String?
+  preheader  String?
+  bodyCopy   String?
+  pushTitle  String?
+  pushBody   String?
+  cta        String?
+  notes      String?
+  uploadedAt DateTime @default(now())
+
+  mockup    Mockup     @relation(fields: [mockupId], references: [id], onDelete: Cascade)
+  approval  Approval?
+  comments  Comment[]
+
+  @@unique([mockupId, version])
+}
+
+model Approval {
+  id              String   @id @default(cuid())
+  mockupVersionId String   @unique
+  rogerApproved   Boolean  @default(false)
+  rogerApprovedAt DateTime?
+  toddApproved    Boolean  @default(false)
+  toddApprovedAt  DateTime?
+  approved        Boolean  @default(false)
+  approvedAt      DateTime?
+
+  mockupVersion MockupVersion @relation(fields: [mockupVersionId], references: [id], onDelete: Cascade)
+}
+
+model Comment {
+  id              String   @id @default(cuid())
+  mockupVersionId String
+  text            String
+  author          String   @default("Executive")
+  createdAt       DateTime @default(now())
+
+  mockupVersion MockupVersion @relation(fields: [mockupVersionId], references: [id], onDelete: Cascade)
+}
+
+model CampaignKpi {
+  id                  String  @id @default(cuid())
+  campaignId          String  @unique
+  reportUrls          String  @default("[]") // JSON array of { label, url }
+  overallSales        String?
+  yoyNotes            String?
+  incrementalityNotes String?
+  analysisNotes       String?
+
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+}
+
+model Settings {
+  id              String @id @default("default")
+  slackWebhookUrl String @default("")
+  reviewBaseUrl   String @default("")
+}
