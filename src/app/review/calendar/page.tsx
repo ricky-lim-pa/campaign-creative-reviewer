@@ -3,6 +3,8 @@ import { CalendarView } from "@/components/CalendarView";
 import { prisma, ensureSettings } from "@/lib/db";
 import { getApprovalStats } from "@/lib/stats";
 
+export const dynamic = "force-dynamic";
+
 export default async function CalendarPage() {
   await ensureSettings();
 

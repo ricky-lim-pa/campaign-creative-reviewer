@@ -13,7 +13,13 @@ type CampaignApiRow = {
   region: string;
   startDate: string;
   mockups: Array<{
-    versions: Array<{ approval: { approved: boolean } | null }>;
+    versions: Array<{
+      approval: {
+        rogerApproved: boolean;
+        toddApproved: boolean;
+        approved: boolean;
+      } | null;
+    }>;
   }>;
 };
 

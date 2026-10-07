@@ -4,6 +4,8 @@ import { AppIcon } from "@/components/AppIcon";
 import { APPS } from "@/lib/apps";
 import { prisma, ensureSettings } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function ReviewHomePage() {
   await ensureSettings();
 

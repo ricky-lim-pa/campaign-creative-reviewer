@@ -27,7 +27,11 @@ type ReviewMockup = {
     pushBody: string | null;
     cta: string | null;
     notes: string | null;
-    approval: { approved: boolean } | null;
+    approval: {
+      rogerApproved: boolean;
+      toddApproved: boolean;
+      approved: boolean;
+    } | null;
     comments: { id: string; text: string; author: string; createdAt: string }[];
   }>;
 };

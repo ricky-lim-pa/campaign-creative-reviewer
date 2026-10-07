@@ -3,6 +3,8 @@ import { NavBar, adminNav } from "@/components/NavBar";
 import { CampaignListTable } from "@/components/CampaignListTable";
 import { prisma, ensureSettings } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboard() {
   await ensureSettings();
 

@@ -1,10 +1,10 @@
 export type ApprovalRecord = {
   rogerApproved: boolean;
-  rogerApprovedAt: string | Date | null;
+  rogerApprovedAt?: string | Date | null;
   toddApproved: boolean;
-  toddApprovedAt: string | Date | null;
+  toddApprovedAt?: string | Date | null;
   approved: boolean;
-  approvedAt: string | Date | null;
+  approvedAt?: string | Date | null;
 };
 
 export type ApproverId = "roger" | "todd";
