@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { NavBar, reviewNav } from "@/components/NavBar";
 import { AppIcon } from "@/components/AppIcon";
 import { CampaignListTable } from "@/components/CampaignListTable";
+import { HomeHeroSizes } from "@/components/HomeHeroSizes";
 import { getApp } from "@/lib/apps";
 import { prisma, ensureSettings } from "@/lib/db";
 import { appStaticParams } from "@/lib/staticParams";
@@ -53,6 +54,8 @@ export default async function AppCampaignsPage({
           </div>
         </div>
       </section>
+
+      {appId === "cards-uk" ? <HomeHeroSizes /> : null}
 
       <section className="hub-section--tight">
         <div className="hub-container">
