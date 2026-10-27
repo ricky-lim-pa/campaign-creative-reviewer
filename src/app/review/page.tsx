@@ -51,6 +51,7 @@ export default async function ReviewHomePage() {
       return [app.id, reviewStatus(approved, appCampaigns.length)];
     })
   );
+  const visibleApps = APPS.filter((app) => statusByApp[app.id].tone !== "empty");
 
   return (
     <div className="hub-page bg-hub-cream">
@@ -75,11 +76,11 @@ export default async function ReviewHomePage() {
             <h2 className="text-xl font-semibold tracking-humaan-tight text-hub-heading md:text-2xl">
               Select an app
             </h2>
-            <p className="text-sm text-hub-muted">{APPS.length} apps</p>
+            <p className="text-sm text-hub-muted">{visibleApps.length} apps</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {APPS.map((app) => (
+            {visibleApps.map((app) => (
               <Link key={app.id} href={`/review/${app.id}`} className="hub-card">
                 <AppIcon appId={app.id} size={44} className="mb-3 rounded-xl" />
                 <h3 className="text-base font-semibold tracking-humaan-tight text-hub-ink">
