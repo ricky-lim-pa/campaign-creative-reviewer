@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { AppIcon } from "@/components/AppIcon";
 import { CampaignListTable } from "@/components/CampaignListTable";
 import { APPS, formatDate, getApp } from "@/lib/apps";
@@ -21,7 +21,6 @@ type CalendarViewProps = {
 
 export function CalendarView({ campaigns }: CalendarViewProps) {
   const [selectedMonthId, setSelectedMonthId] = useState<string>("all");
-  const listRef = useRef<HTMLDivElement>(null);
 
   const counts = useMemo(() => countCampaignsByMonth(campaigns), [campaigns]);
   const selectedMonth = Q4_TIMELINE_MONTHS.find((m) => m.id === selectedMonthId);
@@ -40,9 +39,6 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
 
   function selectMonth(id: string) {
     setSelectedMonthId(id);
-    requestAnimationFrame(() => {
-      listRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
   }
 
   const rangeLabel = selectedMonth ? selectedMonth.fullLabel : "September 2026 through January 2027";
@@ -177,7 +173,7 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
         </div>
       </section>
 
-      <section ref={listRef} className="scroll-mt-28">
+      <section>
         <div className="mb-4 flex items-center justify-between gap-4">
           <p className="hub-copy-label">Campaign list</p>
           {selectedMonth && (
