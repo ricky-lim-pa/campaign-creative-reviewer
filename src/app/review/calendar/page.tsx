@@ -1,8 +1,7 @@
 import { NavBar, reviewNav } from "@/components/NavBar";
-import { CalendarView } from "@/components/CalendarView";
+import { CampaignListTable } from "@/components/CampaignListTable";
 import { prisma, ensureSettings } from "@/lib/db";
 import { isCampaignApproved } from "@/lib/approvals";
-import { getApprovalStats } from "@/lib/stats";
 
 export const dynamic = "force-dynamic";
 
@@ -25,37 +24,36 @@ export default async function CalendarPage() {
     },
   });
 
-  const campaigns = rows.map((c) => {
-    const stats = getApprovalStats(c.mockups);
-    return {
-      id: c.id,
-      appId: c.appId,
-      title: c.title,
-      region: c.region,
-      startDate: c.startDate.toISOString(),
-      endDate: c.endDate.toISOString(),
-      approvedCount: stats.approved,
-      totalAssets: stats.total,
-      fullyApproved: isCampaignApproved(c),
-    };
-  });
+  const campaigns = rows.map((c) => ({
+    id: c.id,
+    appId: c.appId,
+    title: c.title,
+    region: c.region,
+    startDate: c.startDate.toISOString(),
+    endDate: c.endDate.toISOString(),
+    totalAssets: c.mockups.length,
+    fullyApproved: isCampaignApproved(c),
+  }));
 
   return (
     <div className="hub-page bg-hub-cream">
       <NavBar links={reviewNav} badge="Q4 2026" />
 
-      <section className="hub-hero hub-hero--compact">
-        <div className="hub-container">
-          <p className="hub-hero__eyebrow">Plan the season</p>
-          <h1 className="hub-display-sm">Q4 Calendar</h1>
-          <p className="hub-lead mt-2 max-w-2xl">
-            Click a month on the timeline to zoom in and see every campaign running that period.
+      <main className="hub-container hub-main pb-8">
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <h1 className="text-xl font-semibold tracking-humaan-tight text-hub-heading md:text-2xl">
+            Q4 campaigns
+          </h1>
+          <p className="text-sm text-hub-muted">
+            {campaigns.length} campaign{campaigns.length === 1 ? "" : "s"}
           </p>
         </div>
-      </section>
-
-      <main className="hub-container hub-main pb-8">
-        <CalendarView campaigns={campaigns} />
+        <CampaignListTable
+          rows={campaigns}
+          linkPattern="review-any"
+          linkLabel="Review"
+          showReviewStatus
+        />
       </main>
     </div>
   );

@@ -1,16 +1,17 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { NavBar, reviewNav } from "@/components/NavBar";
 import { BackLink } from "@/components/BackLink";
 import { AssetReviewViewer } from "@/components/AssetReviewViewer";
 import { AppIcon } from "@/components/AppIcon";
+import { CampaignMeta, CampaignResourceLinks } from "@/components/CampaignMeta";
 import { ProgressBar } from "@/components/StatusBadge";
 import { getApp } from "@/lib/apps";
 import { getApprovalStats } from "@/lib/stats";
 import { fetchCampaign } from "@/lib/publicPath";
+import { parseReportUrls } from "@/lib/types";
 
 type CampaignData = {
   id: string;
@@ -24,6 +25,13 @@ type CampaignData = {
   reportUrl: string | null;
   confluenceUrl: string | null;
   basecampUrl: string | null;
+  kpi: {
+    reportUrls: string | null;
+    overallSales: string | null;
+    yoyNotes: string | null;
+    incrementalityNotes: string | null;
+    analysisNotes: string | null;
+  } | null;
   mockups: Array<{
     id: string;
     type: string;
@@ -56,7 +64,6 @@ export default function CampaignReviewPage() {
   const app = getApp(params.app);
   const [campaign, setCampaign] = useState<CampaignData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [reviewMode, setReviewMode] = useState(false);
 
   const load = useCallback(async () => {
     const data = await fetchCampaign(params.campaignId);
@@ -68,69 +75,103 @@ export default function CampaignReviewPage() {
     load();
   }, [load]);
 
-  useEffect(() => {
-    if (!reviewMode) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
-  }, [reviewMode]);
-
   if (!app) return <p className="p-8">App not found</p>;
   if (loading) return <p className="p-8 text-hub-muted">Loading...</p>;
   if (!campaign) return <p className="p-8">Campaign not found</p>;
 
   const stats = getApprovalStats(campaign.mockups);
+  const reportLinks = parseReportUrls(campaign.kpi?.reportUrls || "[]");
+  const performance = [
+    { label: "Overall sales", value: campaign.kpi?.overallSales },
+    { label: "YoY comparison", value: campaign.kpi?.yoyNotes },
+    { label: "Incrementality", value: campaign.kpi?.incrementalityNotes },
+    { label: "Analysis", value: campaign.kpi?.analysisNotes },
+  ].filter((item) => item.value?.trim());
 
   return (
-    <div className={`${reviewMode ? "hub-review-mode" : "hub-page bg-hub-cream"}`}>
-      {!reviewMode ? <NavBar links={reviewNav} badge={app.shortName} /> : null}
+    <div className="hub-page bg-hub-cream">
+      <NavBar links={reviewNav} badge={app.shortName} />
 
-      {!reviewMode ? (
-        <section className="hub-hero hub-hero--compact hub-hero--review">
-          <div className="hub-container max-w-[1600px]">
-            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-              <div className="min-w-0">
-                <BackLink
-                  fallback={`/review/${params.app}`}
-                  label={`← ${app.shortName} campaigns`}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-hub-muted hover:text-hub-ink"
-                />
-                <div className="mt-2 flex flex-wrap items-center gap-3">
-                  <AppIcon appId={campaign.appId} size={36} className="rounded-lg" />
-                  <h1 className="text-2xl font-semibold tracking-humaan-tight text-hub-heading md:text-3xl">
-                    {campaign.title}
-                  </h1>
-                  <ProgressBar approved={stats.approved} total={stats.total} />
-                </div>
-              </div>
-              <Link
-                href={`/review/${params.app}/${params.campaignId}/kpi`}
-                className="hub-btn shrink-0 self-start"
-              >
-                KPI & Reports →
-              </Link>
-            </div>
+      <section className="hub-hero hub-hero--compact hub-hero--review">
+        <div className="hub-container max-w-[1600px]">
+          <BackLink
+            fallback={`/review/${params.app}`}
+            label={`← ${app.shortName} campaigns`}
+            className="inline-flex items-center gap-2 text-sm font-medium text-hub-muted hover:text-hub-ink"
+          />
+          <div className="mt-2 flex flex-wrap items-center gap-3">
+            <AppIcon appId={campaign.appId} size={36} className="rounded-lg" />
+            <h1 className="text-2xl font-semibold tracking-humaan-tight text-hub-heading md:text-3xl">
+              {campaign.title}
+            </h1>
+            {stats.total > 0 ? (
+              <ProgressBar approved={stats.approved} total={stats.total} />
+            ) : (
+              <span className="hub-tag hub-tag--review">Assets pending</span>
+            )}
           </div>
-        </section>
-      ) : null}
+          <div className="mt-4 hub-card-bordered p-4">
+            <CampaignMeta
+              eventLabel={campaign.eventLabel}
+              region={campaign.region}
+              startDate={campaign.startDate}
+              endDate={campaign.endDate}
+              notes={campaign.notes}
+            />
+            <CampaignResourceLinks
+              className="mt-4"
+              links={{
+                reportUrl: campaign.reportUrl,
+                confluenceUrl: campaign.confluenceUrl,
+                basecampUrl: campaign.basecampUrl,
+              }}
+            />
+          </div>
+        </div>
+      </section>
 
-      <section className={reviewMode ? "hub-review-mode__body" : "hub-section--tight pb-8"}>
-        <div className={reviewMode ? "hub-review-mode__container" : "hub-container max-w-[1600px]"}>
+      <section className="hub-section--tight pb-8">
+        <div className="hub-container max-w-[1600px] space-y-6">
           <AssetReviewViewer
             mockups={campaign.mockups}
             campaignId={campaign.id}
             appId={campaign.appId}
             campaignTitle={campaign.title}
-            appShortName={app.shortName}
             approvedCount={stats.approved}
             totalCount={stats.total}
-            reviewMode={reviewMode}
-            onReviewModeChange={setReviewMode}
             onUpdated={load}
-            backFallback={`/review/${params.app}`}
           />
+          {reportLinks.length > 0 || performance.length > 0 ? (
+            <section className="hub-card-bordered p-5">
+              <h2 className="text-lg font-semibold text-hub-heading">Performance</h2>
+              {reportLinks.length > 0 ? (
+                <ul className="mt-3 space-y-2">
+                  {reportLinks.map((link) => (
+                    <li key={link.url}>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-hub-ink hover:underline"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              {performance.length > 0 ? (
+                <dl className="mt-4 grid gap-4 sm:grid-cols-2">
+                  {performance.map((item) => (
+                    <div key={item.label}>
+                      <dt className="hub-copy-label mb-1">{item.label}</dt>
+                      <dd className="whitespace-pre-wrap text-sm leading-relaxed text-hub-muted">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+            </section>
+          ) : null}
         </div>
       </section>
     </div>

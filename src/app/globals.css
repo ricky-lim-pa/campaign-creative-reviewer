@@ -804,6 +804,20 @@ select {
   }
 
   /* Exec theater — large canvas + side panels */
+  .hub-asset-stack {
+    @apply space-y-6;
+  }
+
+  .hub-asset-stack .hub-theater__layout,
+  .hub-asset-stack .hub-theater__visual,
+  .hub-asset-stack .hub-theater__stage {
+    min-height: 0;
+  }
+
+  .hub-asset-stack .hub-theater__image--static {
+    max-height: 560px;
+  }
+
   .hub-theater {
     @apply w-full;
   }

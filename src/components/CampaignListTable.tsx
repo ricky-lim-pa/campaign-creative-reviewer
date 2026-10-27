@@ -32,6 +32,12 @@ function hrefForRow(row: CampaignListRow, linkPattern: CampaignListTableProps["l
   return `/admin/campaigns/${row.id}`;
 }
 
+function reviewLabel(row: CampaignListRow) {
+  const assets = row.totalAssets ?? 0;
+  if (assets === 0 && !row.fullyApproved) return "Assets Pending";
+  return row.fullyApproved ? "Approved" : "Needs Review";
+}
+
 export function CampaignListTable({
   rows,
   showApp = true,
@@ -42,7 +48,13 @@ export function CampaignListTable({
 }: CampaignListTableProps) {
   const router = useRouter();
 
+  function canOpen(row: CampaignListRow) {
+    if (!showReviewStatus) return true;
+    return (row.totalAssets ?? 0) > 0;
+  }
+
   function openRow(row: CampaignListRow) {
+    if (!canOpen(row)) return;
     router.push(hrefForRow(row, linkPattern, appId));
   }
 
@@ -63,20 +75,23 @@ export function CampaignListTable({
         <tbody>
           {rows.map((row) => {
             const app = getApp(row.appId);
+            const open = canOpen(row);
+            const label = reviewLabel(row);
             return (
               <tr
                 key={row.id}
-                className="hub-table__row hub-table__row--clickable"
+                className={open ? "hub-table__row hub-table__row--clickable" : "hub-table__row"}
                 onClick={() => openRow(row)}
                 onKeyDown={(event) => {
+                  if (!open) return;
                   if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
                     openRow(row);
                   }
                 }}
-                tabIndex={0}
-                role="link"
-                aria-label={`Open ${row.title} for review`}
+                tabIndex={open ? 0 : undefined}
+                role={open ? "link" : undefined}
+                aria-label={open ? `Open ${row.title} for review` : undefined}
               >
                 <td className="hub-table__date">{formatDate(row.startDate)}</td>
                 <td className="hub-table__date">{formatDate(row.endDate)}</td>
@@ -92,13 +107,13 @@ export function CampaignListTable({
                 ) : null}
                 {showReviewStatus ? (
                   <td className="hub-table__status whitespace-nowrap">
-                    <span className={row.fullyApproved ? "hub-tag hub-tag--approved" : "hub-tag hub-tag--review"}>
-                      {row.fullyApproved ? "Approved" : "Needs Review"}
+                    <span className={label === "Approved" ? "hub-tag hub-tag--approved" : "hub-tag hub-tag--review"}>
+                      {label}
                     </span>
                   </td>
                 ) : null}
                 <td className="whitespace-nowrap text-right">
-                  <span className="hub-table-link">{linkLabel} →</span>
+                  {open ? <span className="hub-table-link">{linkLabel} →</span> : null}
                 </td>
               </tr>
             );

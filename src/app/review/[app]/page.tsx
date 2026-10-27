@@ -50,6 +50,7 @@ export default async function AppCampaignsPage({
     startDate: c.startDate.toISOString(),
     endDate: c.endDate.toISOString(),
     fullyApproved: isCampaignApproved(c),
+    totalAssets: c.mockups.length,
   }));
 
   return (

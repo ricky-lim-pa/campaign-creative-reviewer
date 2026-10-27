@@ -53,7 +53,7 @@ export function CampaignMeta({
   return (
     <div className="space-y-3">
       <dl className={gridClass}>
-        {eventLabel ? (
+        {eventLabel && eventLabel.trim().toLowerCase() !== "n/a" ? (
           <div>
             <dt className="hub-copy-label mb-1">Event</dt>
             <dd className="font-medium text-hub-ink">{eventLabel}</dd>

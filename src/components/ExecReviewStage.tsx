@@ -143,7 +143,6 @@ function AssetStaticViewer({ src, alt }: { src: string; alt: string }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={src} alt={alt} className="hub-theater__image hub-theater__image--static" draggable={false} />
       </div>
-      <p className="hub-theater__static-hint">Enter review mode to zoom and pan</p>
     </div>
   );
 }
@@ -383,6 +382,7 @@ export function ExecReviewStage({
   }, [activeVersion?.id, clearOptimistic]);
 
   useEffect(() => {
+    if (!reviewMode) return;
     function onKeyDown(event: KeyboardEvent) {
       if (event.key !== "c" && event.key !== "C") return;
       const target = event.target;
@@ -398,7 +398,7 @@ export function ExecReviewStage({
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isLatest]);
+  }, [isLatest, reviewMode]);
 
   async function submitComment(event: React.FormEvent) {
     event.preventDefault();

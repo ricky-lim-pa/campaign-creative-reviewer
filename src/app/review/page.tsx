@@ -7,12 +7,28 @@ import { prisma, ensureSettings } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-function reviewStatus(approved: number, total: number) {
-  if (total === 0) return { primary: "No campaigns", pending: 0, tone: "empty" as const };
-  const pending = total - approved;
-  if (pending === 0) return { primary: `${approved}/${total} approved`, pending: 0, tone: "approved" as const };
-  if (approved === 0) return { primary: `0/${total} pending review`, pending, tone: "pending" as const };
-  return { primary: `${approved}/${total} approved`, pending, tone: "mixed" as const };
+function assetsPendingLabel(count: number) {
+  return count === 1 ? "1 asset pending" : `${count} assets pending`;
+}
+
+function reviewStatus(appCampaigns: { title: string; mockups: { versions: { approval: { rogerApproved: boolean; toddApproved: boolean } | null }[] }[] }[]) {
+  if (appCampaigns.length === 0) {
+    return { primary: "No campaigns", needsReview: 0, assetsPending: 0, tone: "empty" as const };
+  }
+  const assetsPending = appCampaigns.filter((campaign) => campaign.mockups.length === 0 && !isCampaignApproved(campaign)).length;
+  const reviewable = appCampaigns.length - assetsPending;
+  const approved = appCampaigns.filter(isCampaignApproved).length;
+  const needsReview = reviewable - approved;
+  if (reviewable === 0) {
+    return { primary: assetsPendingLabel(assetsPending), needsReview: 0, assetsPending, tone: "waiting" as const };
+  }
+  if (needsReview === 0) {
+    return { primary: `${approved}/${reviewable} approved`, needsReview: 0, assetsPending, tone: "approved" as const };
+  }
+  if (approved === 0) {
+    return { primary: `0/${reviewable} pending review`, needsReview, assetsPending, tone: "pending" as const };
+  }
+  return { primary: `${approved}/${reviewable} approved`, needsReview, assetsPending, tone: "mixed" as const };
 }
 
 export default async function ReviewHomePage() {
@@ -35,8 +51,7 @@ export default async function ReviewHomePage() {
   const statusByApp = Object.fromEntries(
     APPS.map((app) => {
       const appCampaigns = campaigns.filter((c) => c.appId === app.id);
-      const approved = appCampaigns.filter(isCampaignApproved).length;
-      return [app.id, reviewStatus(approved, appCampaigns.length)];
+      return [app.id, reviewStatus(appCampaigns)];
     })
   );
   const visibleApps = APPS.filter((app) => statusByApp[app.id].tone !== "empty");
@@ -80,14 +95,19 @@ export default async function ReviewHomePage() {
                   ) : (
                     <span
                       className={
-                        statusByApp[app.id].tone === "pending" ? "hub-badge-pending" : "hub-badge-approved"
+                        statusByApp[app.id].tone === "pending" || statusByApp[app.id].tone === "waiting"
+                          ? "hub-badge-pending"
+                          : "hub-badge-approved"
                       }
                     >
                       {statusByApp[app.id].primary}
                     </span>
                   )}
                   {statusByApp[app.id].tone === "mixed" ? (
-                    <span className="hub-badge-pending">{statusByApp[app.id].pending} pending review</span>
+                    <span className="hub-badge-pending">{statusByApp[app.id].needsReview} pending review</span>
+                  ) : null}
+                  {statusByApp[app.id].assetsPending > 0 && statusByApp[app.id].tone !== "waiting" ? (
+                    <span className="hub-badge-pending">{assetsPendingLabel(statusByApp[app.id].assetsPending)}</span>
                   ) : null}
                 </div>
               </Link>
