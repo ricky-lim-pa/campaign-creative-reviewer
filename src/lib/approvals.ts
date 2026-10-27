@@ -25,7 +25,9 @@ export function approverStatusLabel(approver: ApproverId, signed: boolean) {
   return signed ? `Approved by ${name}` : `${name} Approval`;
 }
 
-export function isFullyApproved(approval: ApprovalRecord | null | undefined) {
+export function isFullyApproved(
+  approval: Pick<ApprovalRecord, "rogerApproved" | "toddApproved"> | null | undefined
+) {
   return Boolean(approval?.rogerApproved && approval?.toddApproved);
 }
 
