@@ -151,7 +151,7 @@ select {
   }
 
   .hub-table td {
-    @apply border-b border-hub-border/50 px-3 py-2.5 align-top last:border-0;
+    @apply border-b border-hub-border/50 px-3 py-3 align-middle last:border-0;
   }
 
   .hub-table__date {
@@ -179,7 +179,7 @@ select {
   }
 
   .hub-table-link {
-    @apply text-sm font-semibold text-hub-green-text transition-colors;
+    @apply inline-flex items-center whitespace-nowrap text-sm font-semibold leading-none text-hub-green-text transition-colors;
   }
 
   .hub-table-link:hover {
@@ -205,11 +205,11 @@ select {
   }
 
   .hub-calendar-months {
-    @apply grid grid-cols-3 gap-2 sm:grid-cols-5 md:gap-3;
+    @apply grid grid-cols-5 gap-3;
   }
 
   .hub-calendar-month {
-    @apply flex flex-col items-center rounded-xl border border-hub-border bg-hub-cream/50 px-2 py-3 text-center transition-all;
+    @apply flex min-h-[6.5rem] flex-col items-center justify-center rounded-xl border border-hub-border bg-hub-cream/50 px-2 py-3 text-center transition-all;
   }
 
   .hub-calendar-month:hover {
@@ -222,15 +222,15 @@ select {
   }
 
   .hub-calendar-month__label {
-    @apply text-lg font-semibold tracking-tight;
+    @apply text-lg font-semibold leading-none tracking-tight;
   }
 
   .hub-calendar-month__year {
-    @apply mt-0.5 text-[10px] font-medium uppercase tracking-wider opacity-70;
+    @apply mt-1 text-[11px] font-medium uppercase leading-none tracking-wider opacity-70;
   }
 
   .hub-calendar-month__count {
-    @apply mt-2 rounded-full bg-white/80 px-2 py-0.5 text-[11px] font-semibold;
+    @apply mt-2 inline-flex h-5 min-w-8 items-center justify-center rounded-full bg-white px-2 text-xs font-semibold tabular-nums leading-none text-hub-ink;
   }
 
   .hub-calendar-month--active .hub-calendar-month__count {
@@ -238,20 +238,15 @@ select {
   }
 
   .hub-calendar-density {
-    @apply mt-4 grid grid-cols-5 gap-2 border-t border-hub-border/60 pt-4;
+    @apply mt-4 grid grid-cols-5 items-end gap-3 border-t border-hub-border/60 pt-4;
   }
 
   .hub-calendar-density__col {
-    @apply flex flex-col items-center gap-2 rounded-xl px-1 py-2 transition-colors;
-  }
-
-  .hub-calendar-density__col:hover,
-  .hub-calendar-density__col--active {
-    @apply bg-hub-cream/80;
+    @apply flex h-20 flex-col items-center justify-end gap-2 px-1;
   }
 
   .hub-calendar-density__bar {
-    @apply w-full min-h-[12px] max-h-16 rounded-full bg-hub-green/35 transition-all;
+    @apply w-full rounded-full bg-hub-green/35;
   }
 
   .hub-calendar-density__col--active .hub-calendar-density__bar {
@@ -259,7 +254,7 @@ select {
   }
 
   .hub-calendar-density__label {
-    @apply text-[10px] font-semibold uppercase tracking-wide text-hub-muted;
+    @apply text-[11px] font-semibold uppercase leading-none tracking-wider text-hub-muted;
   }
 
   .hub-calendar-gantt__axis {
@@ -361,7 +356,7 @@ select {
   }
 
   .hub-tag {
-    @apply inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide;
+    @apply inline-flex h-6 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-2.5 text-xs font-semibold leading-none;
   }
 
   .hub-tag--approved {

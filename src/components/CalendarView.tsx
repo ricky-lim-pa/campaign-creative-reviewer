@@ -46,7 +46,7 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
   return (
     <div className="space-y-6">
       <section className="hub-calendar-panel">
-        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-5 flex items-center justify-between gap-4">
           <div>
             <p className="hub-copy-label">Timeline</p>
             <h2 className="text-xl font-semibold text-hub-heading md:text-2xl">{rangeLabel}</h2>
@@ -84,7 +84,7 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
           {Q4_TIMELINE_MONTHS.map((month) => {
             const count = counts[month.id];
             const max = Math.max(...Object.values(counts), 1);
-            const height = Math.max(12, (count / max) * 100);
+            const height = Math.max(8, Math.round((count / max) * 48));
             return (
               <button
                 key={month.id}
@@ -93,7 +93,7 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
                 className={`hub-calendar-density__col ${selectedMonthId === month.id ? "hub-calendar-density__col--active" : ""}`}
                 title={`${month.fullLabel}: ${count} campaigns`}
               >
-                <span className="hub-calendar-density__bar" style={{ height: `${height}%` }} />
+                <span className="hub-calendar-density__bar" style={{ height: `${height}px` }} />
                 <span className="hub-calendar-density__label">{month.label}</span>
               </button>
             );

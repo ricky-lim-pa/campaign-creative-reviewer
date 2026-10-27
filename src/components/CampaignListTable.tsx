@@ -91,13 +91,13 @@ export function CampaignListTable({
                   </td>
                 ) : null}
                 {showReviewStatus ? (
-                  <td>
+                  <td className="whitespace-nowrap">
                     <span className={row.fullyApproved ? "hub-tag hub-tag--approved" : "hub-tag hub-tag--review"}>
                       {row.fullyApproved ? "Approved" : "Needs Review"}
                     </span>
                   </td>
                 ) : null}
-                <td className="text-right">
+                <td className="whitespace-nowrap text-right">
                   <span className="hub-table-link">{linkLabel} →</span>
                 </td>
               </tr>
