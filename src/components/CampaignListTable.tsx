@@ -56,6 +56,7 @@ export function CampaignListTable({
             <th>Region</th>
             <th>Campaign</th>
             {showApp ? <th>App</th> : null}
+            {showReviewStatus ? <th>Status</th> : null}
             <th />
           </tr>
         </thead>
@@ -89,15 +90,15 @@ export function CampaignListTable({
                     </div>
                   </td>
                 ) : null}
+                {showReviewStatus ? (
+                  <td>
+                    <span className={row.fullyApproved ? "hub-tag hub-tag--approved" : "hub-tag hub-tag--review"}>
+                      {row.fullyApproved ? "Approved" : "Needs Review"}
+                    </span>
+                  </td>
+                ) : null}
                 <td className="text-right">
-                  {showReviewStatus && row.fullyApproved ? (
-                    <div className="flex flex-wrap items-center justify-end gap-2">
-                      <span className="hub-tag hub-tag--approved">Approved</span>
-                      <span className="hub-table-link">Review again →</span>
-                    </div>
-                  ) : (
-                    <span className="hub-table-link">{linkLabel} →</span>
-                  )}
+                  <span className="hub-table-link">{linkLabel} →</span>
                 </td>
               </tr>
             );

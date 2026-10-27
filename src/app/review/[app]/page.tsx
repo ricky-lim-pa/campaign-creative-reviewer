@@ -4,6 +4,7 @@ import { NavBar, reviewNav } from "@/components/NavBar";
 import { AppIcon } from "@/components/AppIcon";
 import { CampaignListTable } from "@/components/CampaignListTable";
 import { HomeHeroSizes } from "@/components/HomeHeroSizes";
+import { isCampaignApproved } from "@/lib/approvals";
 import { getApp } from "@/lib/apps";
 import { prisma, ensureSettings } from "@/lib/db";
 import { appStaticParams } from "@/lib/staticParams";
@@ -28,12 +29,27 @@ export default async function AppCampaignsPage({
   const campaigns = await prisma.campaign.findMany({
     where: { appId },
     orderBy: { startDate: "asc" },
+    include: {
+      mockups: {
+        include: {
+          versions: {
+            orderBy: { version: "desc" },
+            take: 1,
+            include: { approval: true },
+          },
+        },
+      },
+    },
   });
 
   const rows = campaigns.map((c) => ({
-    ...c,
+    id: c.id,
+    appId: c.appId,
+    title: c.title,
+    region: c.region,
     startDate: c.startDate.toISOString(),
     endDate: c.endDate.toISOString(),
+    fullyApproved: isCampaignApproved(c),
   }));
 
   return (
@@ -70,6 +86,7 @@ export default async function AppCampaignsPage({
               linkPattern="review-app"
               appId={appId}
               linkLabel="Review"
+              showReviewStatus
             />
           )}
         </div>

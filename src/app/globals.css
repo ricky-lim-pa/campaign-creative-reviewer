@@ -368,6 +368,10 @@ select {
     @apply bg-hub-green text-white;
   }
 
+  .hub-tag--review {
+    @apply bg-hub-cream-dark text-hub-muted;
+  }
+
   .hub-list-item {
     @apply flex flex-col gap-3 rounded-xl bg-white p-4 md:rounded-2xl sm:flex-row sm:items-center sm:justify-between;
     box-shadow: 0 4px 20px rgba(84, 83, 83, 0.05);

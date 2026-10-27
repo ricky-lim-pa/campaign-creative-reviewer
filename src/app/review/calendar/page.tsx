@@ -1,6 +1,7 @@
 import { NavBar, reviewNav } from "@/components/NavBar";
 import { CalendarView } from "@/components/CalendarView";
 import { prisma, ensureSettings } from "@/lib/db";
+import { isCampaignApproved } from "@/lib/approvals";
 import { getApprovalStats } from "@/lib/stats";
 
 export const dynamic = "force-dynamic";
@@ -35,7 +36,7 @@ export default async function CalendarPage() {
       endDate: c.endDate.toISOString(),
       approvedCount: stats.approved,
       totalAssets: stats.total,
-      fullyApproved: stats.total > 0 && stats.approved === stats.total,
+      fullyApproved: isCampaignApproved(c),
     };
   });
 

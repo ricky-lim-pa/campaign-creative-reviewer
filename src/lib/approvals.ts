@@ -29,6 +29,19 @@ export function isFullyApproved(approval: ApprovalRecord | null | undefined) {
   return Boolean(approval?.rogerApproved && approval?.toddApproved);
 }
 
+type CampaignApprovalSource = {
+  title: string;
+  mockups: { versions: { approval: Pick<ApprovalRecord, "rogerApproved" | "toddApproved"> | null }[] }[];
+};
+
+/** Signed creative counts. Forgotten Island was approved before this review and has no new assets. */
+export function isCampaignApproved(campaign: CampaignApprovalSource) {
+  if (campaign.mockups.length > 0) {
+    return campaign.mockups.every((mockup) => isFullyApproved(mockup.versions[0]?.approval));
+  }
+  return /movie prize stakes/i.test(campaign.title);
+}
+
 export function approverIsSigned(approval: ApprovalRecord | null | undefined, approver: ApproverId) {
   if (!approval) return false;
   return approver === "roger" ? approval.rogerApproved : approval.toddApproved;

@@ -1,23 +1,11 @@
 import Link from "next/link";
 import { NavBar, reviewNav } from "@/components/NavBar";
 import { AppIcon } from "@/components/AppIcon";
+import { isCampaignApproved } from "@/lib/approvals";
 import { APPS } from "@/lib/apps";
 import { prisma, ensureSettings } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
-
-type CampaignWithReview = {
-  appId: string;
-  mockups: { versions: { approval: { rogerApproved: boolean; toddApproved: boolean } | null }[] }[];
-};
-
-function campaignIsApproved(campaign: CampaignWithReview) {
-  if (campaign.mockups.length === 0) return false;
-  return campaign.mockups.every((mockup) => {
-    const approval = mockup.versions[0]?.approval;
-    return Boolean(approval?.rogerApproved && approval?.toddApproved);
-  });
-}
 
 function reviewStatus(approved: number, total: number) {
   if (total === 0) return { primary: "No campaigns", pending: 0, tone: "empty" as const };
@@ -47,7 +35,7 @@ export default async function ReviewHomePage() {
   const statusByApp = Object.fromEntries(
     APPS.map((app) => {
       const appCampaigns = campaigns.filter((c) => c.appId === app.id);
-      const approved = appCampaigns.filter(campaignIsApproved).length;
+      const approved = appCampaigns.filter(isCampaignApproved).length;
       return [app.id, reviewStatus(approved, appCampaigns.length)];
     })
   );
