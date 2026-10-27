@@ -6,6 +6,27 @@ import { prisma, ensureSettings } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
+type CampaignWithReview = {
+  appId: string;
+  mockups: { versions: { approval: { rogerApproved: boolean; toddApproved: boolean } | null }[] }[];
+};
+
+function campaignIsApproved(campaign: CampaignWithReview) {
+  if (campaign.mockups.length === 0) return false;
+  return campaign.mockups.every((mockup) => {
+    const approval = mockup.versions[0]?.approval;
+    return Boolean(approval?.rogerApproved && approval?.toddApproved);
+  });
+}
+
+function reviewStatus(approved: number, total: number) {
+  if (total === 0) return { primary: "No campaigns", pending: 0, tone: "empty" as const };
+  const pending = total - approved;
+  if (pending === 0) return { primary: `${approved}/${total} approved`, pending: 0, tone: "approved" as const };
+  if (approved === 0) return { primary: `0/${total} pending review`, pending, tone: "pending" as const };
+  return { primary: `${approved}/${total} approved`, pending, tone: "mixed" as const };
+}
+
 export default async function ReviewHomePage() {
   await ensureSettings();
 
@@ -23,10 +44,11 @@ export default async function ReviewHomePage() {
     },
   });
 
-  const countsByApp = Object.fromEntries(
+  const statusByApp = Object.fromEntries(
     APPS.map((app) => {
       const appCampaigns = campaigns.filter((c) => c.appId === app.id);
-      return [app.id, appCampaigns.length];
+      const approved = appCampaigns.filter(campaignIsApproved).length;
+      return [app.id, reviewStatus(approved, appCampaigns.length)];
     })
   );
 
@@ -63,9 +85,22 @@ export default async function ReviewHomePage() {
                 <h3 className="text-base font-semibold tracking-humaan-tight text-hub-ink">
                   {app.shortName}
                 </h3>
-                <p className="mt-0.5 text-sm text-hub-muted">
-                  {countsByApp[app.id] || 0} campaign{(countsByApp[app.id] || 0) !== 1 ? "s" : ""}
-                </p>
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {statusByApp[app.id].tone === "empty" ? (
+                    <p className="text-sm text-hub-muted">{statusByApp[app.id].primary}</p>
+                  ) : (
+                    <span
+                      className={
+                        statusByApp[app.id].tone === "pending" ? "hub-badge-pending" : "hub-badge-approved"
+                      }
+                    >
+                      {statusByApp[app.id].primary}
+                    </span>
+                  )}
+                  {statusByApp[app.id].tone === "mixed" ? (
+                    <span className="hub-badge-pending">{statusByApp[app.id].pending} pending review</span>
+                  ) : null}
+                </div>
               </Link>
             ))}
           </div>
