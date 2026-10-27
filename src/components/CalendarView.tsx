@@ -104,7 +104,7 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
       <section className="hub-calendar-panel">
         <p className="hub-copy-label mb-4">Campaign spans</p>
         <div className="hub-calendar-gantt">
-          <div className="hub-calendar-gantt__axis">
+          <div className={`hub-calendar-gantt__axis ${selectedMonth ? "hub-calendar-gantt__axis--days" : ""}`}>
             {selectedMonth ? (
               <>
                 <span>Day 1</span>
@@ -112,7 +112,19 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
                 <span>Day {range.end.getDate()}</span>
               </>
             ) : (
-              Q4_TIMELINE_MONTHS.map((m) => <span key={m.id}>{m.fullLabel}</span>)
+              Q4_TIMELINE_MONTHS.map((month) => {
+                const start = monthRange(month).start;
+                const pos = campaignBarPosition(
+                  { startDate: start, endDate: start },
+                  range.start,
+                  range.end
+                );
+                return (
+                  <span key={month.id} style={{ left: `${pos.left}%` }}>
+                    {month.label}
+                  </span>
+                );
+              })
             )}
           </div>
           <div className="hub-calendar-gantt__track">
@@ -131,16 +143,11 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
                     className="hub-calendar-gantt__card group"
                   >
                     <div className="hub-calendar-gantt__card-head">
-                      <AppIcon appId={campaign.appId} size={24} className="shrink-0 rounded-lg" />
+                      <AppIcon appId={campaign.appId} size={28} className="shrink-0 rounded-lg" />
                       <div className="min-w-0 flex-1">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <p className="font-semibold leading-snug text-hub-heading group-hover:text-hub-green-text">
-                            {campaign.title}
-                          </p>
-                          {campaign.fullyApproved ? (
-                            <span className="hub-tag hub-tag--approved">Approved</span>
-                          ) : null}
-                        </div>
+                        <p className="font-semibold leading-snug text-hub-heading group-hover:text-hub-green-text">
+                          {campaign.title}
+                        </p>
                         <p className="mt-1 text-xs leading-relaxed text-hub-muted">
                           <span className="font-medium text-hub-ink">{app?.shortName}</span>
                           {campaign.region ? (
@@ -154,6 +161,9 @@ export function CalendarView({ campaigns }: CalendarViewProps) {
                           {formatDate(campaign.startDate)} — {formatDate(campaign.endDate)}
                         </p>
                       </div>
+                      {campaign.fullyApproved ? (
+                        <span className="hub-tag hub-tag--approved">Approved</span>
+                      ) : null}
                     </div>
                     <div className="hub-calendar-gantt__bar-wrap">
                       <span

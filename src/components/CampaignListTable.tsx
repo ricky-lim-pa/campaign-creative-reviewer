@@ -56,7 +56,7 @@ export function CampaignListTable({
             <th>Region</th>
             <th>Campaign</th>
             {showApp ? <th>App</th> : null}
-            {showReviewStatus ? <th>Status</th> : null}
+            {showReviewStatus ? <th className="hub-table__status">Status</th> : null}
             <th />
           </tr>
         </thead>
@@ -91,7 +91,7 @@ export function CampaignListTable({
                   </td>
                 ) : null}
                 {showReviewStatus ? (
-                  <td className="whitespace-nowrap">
+                  <td className="hub-table__status whitespace-nowrap">
                     <span className={row.fullyApproved ? "hub-tag hub-tag--approved" : "hub-tag hub-tag--review"}>
                       {row.fullyApproved ? "Approved" : "Needs Review"}
                     </span>

@@ -60,7 +60,7 @@ export default async function ReviewHomePage() {
 
       <section className="hub-section--tight">
         <div className="hub-container">
-          <div className="mb-5 flex items-end justify-between gap-4">
+          <div className="mb-5 flex items-center justify-between gap-4">
             <h2 className="text-xl font-semibold tracking-humaan-tight text-hub-heading md:text-2xl">
               Select an app
             </h2>
@@ -69,12 +69,12 @@ export default async function ReviewHomePage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {visibleApps.map((app) => (
-              <Link key={app.id} href={`/review/${app.id}`} className="hub-card">
+              <Link key={app.id} href={`/review/${app.id}`} className="hub-card flex min-h-[10.5rem] flex-col">
                 <AppIcon appId={app.id} size={44} className="mb-3 rounded-xl" />
-                <h3 className="text-base font-semibold tracking-humaan-tight text-hub-ink">
+                <h3 className="text-base font-semibold leading-none tracking-humaan-tight text-hub-ink">
                   {app.shortName}
                 </h3>
-                <div className="mt-2 flex flex-wrap gap-1.5">
+                <div className="mt-auto flex flex-col items-start gap-1.5 pt-3">
                   {statusByApp[app.id].tone === "empty" ? (
                     <p className="text-sm text-hub-muted">{statusByApp[app.id].primary}</p>
                   ) : (
