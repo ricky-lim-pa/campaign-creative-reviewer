@@ -46,3 +46,4 @@ next-env.d.ts
 !/public/uploads/*.jpeg
 !/public/uploads/*.png
 !/public/uploads/*.webp
+!/public/uploads/*.gif
