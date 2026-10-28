@@ -113,6 +113,14 @@ export function countCampaignsByMonth(campaigns: CalendarCampaign[]) {
   );
 }
 
+/** Open campaigns that start by the end of the first week of November. */
+export const REVIEW_RISK_THROUGH = "2026-11-07";
+
+export function isCampaignAtRisk(campaign: { fullyApproved?: boolean; startDate: string | Date }) {
+  if (campaign.fullyApproved) return false;
+  return new Date(campaign.startDate).toISOString().slice(0, 10) <= REVIEW_RISK_THROUGH;
+}
+
 export type CampaignResourceLinks = {
   reportUrl?: string | null;
   confluenceUrl?: string | null;

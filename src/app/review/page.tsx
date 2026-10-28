@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CampaignListTable } from "@/components/CampaignListTable";
 import { prisma, ensureSettings } from "@/lib/db";
 import { isCampaignApproved } from "@/lib/approvals";
+import { isCampaignAtRisk } from "@/lib/campaigns";
 
 export const dynamic = "force-dynamic";
 
@@ -44,6 +45,11 @@ export default async function ReviewHomePage() {
           </h1>
           <p className="text-sm text-hub-muted">
             {campaigns.length} campaign{campaigns.length === 1 ? "" : "s"}
+            {campaigns.some(isCampaignAtRisk) ? (
+              <span className="ml-3 font-semibold text-red-600">
+                {campaigns.filter(isCampaignAtRisk).length} at risk before Nov 7
+              </span>
+            ) : null}
           </p>
         </div>
         <CampaignListTable

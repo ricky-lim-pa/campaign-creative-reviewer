@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { AppIcon } from "@/components/AppIcon";
 import { formatDate, getApp } from "@/lib/apps";
+import { isCampaignAtRisk } from "@/lib/campaigns";
 
 export type CampaignListRow = {
   id: string;
@@ -33,6 +34,7 @@ function hrefForRow(row: CampaignListRow, linkPattern: CampaignListTableProps["l
 }
 
 function reviewLabel(row: CampaignListRow) {
+  if (isCampaignAtRisk(row)) return "At risk";
   const assets = row.totalAssets ?? 0;
   if (assets === 0 && !row.fullyApproved) return "Assets Pending";
   return row.fullyApproved ? "Approved" : "Needs Review";
@@ -77,10 +79,15 @@ export function CampaignListTable({
             const app = getApp(row.appId);
             const open = canOpen(row);
             const label = reviewLabel(row);
+            const atRisk = label === "At risk";
             return (
               <tr
                 key={row.id}
-                className={open ? "hub-table__row hub-table__row--clickable" : "hub-table__row"}
+                className={[
+                  "hub-table__row",
+                  open ? "hub-table__row--clickable" : "",
+                  atRisk ? "hub-table__row--risk" : "",
+                ].filter(Boolean).join(" ")}
                 onClick={() => openRow(row)}
                 onKeyDown={(event) => {
                   if (!open) return;
@@ -107,7 +114,15 @@ export function CampaignListTable({
                 ) : null}
                 {showReviewStatus ? (
                   <td className="hub-table__status whitespace-nowrap">
-                    <span className={label === "Approved" ? "hub-tag hub-tag--approved" : "hub-tag hub-tag--review"}>
+                    <span
+                      className={
+                        label === "Approved"
+                          ? "hub-tag hub-tag--approved"
+                          : label === "At risk"
+                            ? "hub-tag hub-tag--risk"
+                            : "hub-tag hub-tag--review"
+                      }
+                    >
                       {label}
                     </span>
                   </td>

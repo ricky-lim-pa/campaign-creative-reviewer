@@ -403,6 +403,18 @@ select {
     @apply bg-hub-cream-dark text-hub-muted;
   }
 
+  .hub-tag--risk {
+    @apply bg-red-600 text-white;
+  }
+
+  .hub-table__row--risk td {
+    background-color: #fef2f2;
+  }
+
+  .hub-table tbody tr.hub-table__row--risk:hover td {
+    background-color: #fee2e2;
+  }
+
   .hub-list-item {
     @apply flex flex-col gap-3 rounded-xl bg-white p-4 md:rounded-2xl sm:flex-row sm:items-center sm:justify-between;
     box-shadow: 0 4px 20px rgba(84, 83, 83, 0.05);
