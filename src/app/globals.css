@@ -174,20 +174,30 @@ select {
     @apply min-w-[12rem] font-semibold leading-snug text-hub-heading;
   }
 
+  .hub-table__title-link {
+    @apply text-hub-heading hover:text-hub-green-text;
+  }
+
   .hub-table tbody tr:hover {
     @apply bg-hub-cream/40;
   }
 
   .hub-table__row--clickable {
-    @apply cursor-pointer transition-colors;
+    @apply relative cursor-pointer transition-colors;
+  }
+
+  .hub-table__title-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  .hub-table-link {
+    @apply relative z-[1] inline-flex items-center whitespace-nowrap text-sm font-semibold leading-none text-hub-green-text transition-colors;
   }
 
   .hub-table__row--clickable:focus-visible {
     @apply outline-none ring-2 ring-inset ring-hub-green/40;
-  }
-
-  .hub-table-link {
-    @apply inline-flex items-center whitespace-nowrap text-sm font-semibold leading-none text-hub-green-text transition-colors;
   }
 
   .hub-table-link:hover {

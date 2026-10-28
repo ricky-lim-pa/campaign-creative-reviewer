@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AppIcon } from "@/components/AppIcon";
 import { formatDate, getApp } from "@/lib/apps";
@@ -80,6 +81,7 @@ export function CampaignListTable({
             const open = canOpen(row);
             const label = reviewLabel(row);
             const atRisk = label === "At risk";
+            const href = hrefForRow(row, linkPattern, appId);
             return (
               <tr
                 key={row.id}
@@ -88,22 +90,25 @@ export function CampaignListTable({
                   open ? "hub-table__row--clickable" : "",
                   atRisk ? "hub-table__row--risk" : "",
                 ].filter(Boolean).join(" ")}
-                onClick={() => openRow(row)}
-                onKeyDown={(event) => {
+                onClick={(event) => {
                   if (!open) return;
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    openRow(row);
-                  }
+                  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+                  if ((event.target as HTMLElement).closest("a")) return;
+                  openRow(row);
                 }}
-                tabIndex={open ? 0 : undefined}
-                role={open ? "link" : undefined}
-                aria-label={open ? `Open ${row.title} for review` : undefined}
               >
                 <td className="hub-table__date">{formatDate(row.startDate)}</td>
                 <td className="hub-table__date">{formatDate(row.endDate)}</td>
                 <td className="hub-table__region">{row.region || "—"}</td>
-                <td className="hub-table__title">{row.title}</td>
+                <td className="hub-table__title">
+                  {open ? (
+                    <Link href={href} className="hub-table__title-link">
+                      {row.title}
+                    </Link>
+                  ) : (
+                    row.title
+                  )}
+                </td>
                 {showApp ? (
                   <td>
                     <div className="flex items-center gap-2 font-medium">
@@ -128,7 +133,11 @@ export function CampaignListTable({
                   </td>
                 ) : null}
                 <td className="whitespace-nowrap text-right">
-                  {open ? <span className="hub-table-link">{linkLabel} →</span> : null}
+                  {open ? (
+                    <Link href={href} className="hub-table-link">
+                      {linkLabel} →
+                    </Link>
+                  ) : null}
                 </td>
               </tr>
             );
