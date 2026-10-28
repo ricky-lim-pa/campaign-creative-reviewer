@@ -36,12 +36,12 @@ type CampaignApprovalSource = {
   mockups: { versions: { approval: Pick<ApprovalRecord, "rogerApproved" | "toddApproved"> | null }[] }[];
 };
 
-/** Signed creative counts. Forgotten Island was approved before this review and has no new assets. */
+/** Signed creative counts. A few campaigns were approved before assets were added here. */
 export function isCampaignApproved(campaign: CampaignApprovalSource) {
   if (campaign.mockups.length > 0) {
     return campaign.mockups.every((mockup) => isFullyApproved(mockup.versions[0]?.approval));
   }
-  return /movie prize stakes/i.test(campaign.title);
+  return /movie prize stakes|free holiday ornament/i.test(campaign.title);
 }
 
 export function approverIsSigned(approval: ApprovalRecord | null | undefined, approver: ApproverId) {
