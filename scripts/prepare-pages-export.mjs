@@ -3,7 +3,6 @@ import { existsSync } from "node:fs";
 
 const dynamicPages = [
   "src/app/review/page.tsx",
-  "src/app/review/calendar/page.tsx",
   "src/app/admin/page.tsx",
 ];
 
