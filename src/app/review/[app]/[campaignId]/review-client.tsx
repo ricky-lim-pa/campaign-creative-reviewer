@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { NavBar, reviewNav } from "@/components/NavBar";
 import { BackLink } from "@/components/BackLink";
 import { AssetReviewViewer } from "@/components/AssetReviewViewer";
 import { AppIcon } from "@/components/AppIcon";
@@ -90,13 +89,11 @@ export default function CampaignReviewPage() {
 
   return (
     <div className="hub-page bg-hub-cream">
-      <NavBar links={reviewNav} badge={app.shortName} />
-
       <section className="hub-hero hub-hero--compact hub-hero--review">
         <div className="hub-container max-w-[1600px]">
           <BackLink
-            fallback={`/review/${params.app}`}
-            label={`← ${app.shortName} campaigns`}
+            fallback="/review"
+            label="← Campaigns"
             className="inline-flex items-center gap-2 text-sm font-medium text-hub-muted hover:text-hub-ink"
           />
           <div className="mt-2 flex flex-wrap items-center gap-3">

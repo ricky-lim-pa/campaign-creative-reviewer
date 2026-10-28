@@ -55,11 +55,6 @@ export function NavBar({
   );
 }
 
-export const reviewNav = [
-  { href: "/review", label: "Apps" },
-  { href: "/review/calendar", label: "Calendar" },
-];
-
 export const adminNav = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/campaigns/new", label: "New campaign" },

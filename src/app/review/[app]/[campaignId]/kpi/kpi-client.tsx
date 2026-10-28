@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { NavBar, reviewNav } from "@/components/NavBar";
 import { AppIcon } from "@/components/AppIcon";
 import { CampaignMeta, CampaignResourceLinks } from "@/components/CampaignMeta";
 import { getApp } from "@/lib/apps";
@@ -95,7 +94,6 @@ export default function KpiPage() {
 
   return (
     <div className="hub-page bg-hub-cream">
-      <NavBar links={reviewNav} badge="KPI Hub" />
       <main className="hub-container-narrow hub-main">
         <Link
           href={`/review/${params.app}/${params.campaignId}`}
