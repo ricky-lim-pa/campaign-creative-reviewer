@@ -1,0 +1,25 @@
+name: Save shared review board
+
+on:
+  schedule:
+    - cron: "17 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/snapshot-review-board.mjs
+      - name: Commit the shared copy
+        run: |
+          git add src/data/review-board.json
+          git diff --cached --quiet && exit 0
+          git -c user.name="ricky-lim-pa" -c user.email="301517327+ricky-lim-pa@users.noreply.github.com" commit -m "Save shared review board"
+          git push

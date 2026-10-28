@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { PrismaClient } from "@prisma/client";
 
@@ -46,6 +46,13 @@ await mkdir(campaignDir, { recursive: true });
 await writeFile(path.join(dataDir, "campaigns.json"), JSON.stringify(list));
 for (const campaign of details) {
   await writeFile(path.join(campaignDir, `${campaign.id}.json`), JSON.stringify(campaign));
+}
+
+const snapshotPath = path.join(process.cwd(), "src", "data", "review-board.json");
+try {
+  await writeFile(path.join(dataDir, "review-board.json"), await readFile(snapshotPath));
+} catch {
+  await writeFile(path.join(dataDir, "review-board.json"), JSON.stringify({ approvals: [], comments: [] }));
 }
 
 await prisma.$disconnect();

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   approverIsSigned,
   isFullyApproved,
@@ -8,6 +8,7 @@ import {
   type ApprovalRecord,
   type ApproverId,
 } from "@/lib/approvals";
+import { setApprover } from "@/lib/reviewBoard";
 
 type UseApproverSignOffOptions = {
   mockupVersionId: string;
@@ -24,10 +25,6 @@ type UseApproverSignOffOptions = {
 export function useApproverSignOff({
   mockupVersionId,
   approval,
-  appId,
-  campaignId,
-  mockupType,
-  version,
   enabled = true,
   onUpdated,
   onFullyApproved,
@@ -42,6 +39,16 @@ export function useApproverSignOff({
   const fullyApproved = isFullyApproved(currentApproval);
 
   const clearOptimistic = useCallback(() => setOptimisticApproval(null), []);
+
+  useEffect(() => {
+    if (!optimisticApproval || !approval) return;
+    if (
+      approval.rogerApproved === optimisticApproval.rogerApproved &&
+      approval.toddApproved === optimisticApproval.toddApproved
+    ) {
+      setOptimisticApproval(null);
+    }
+  }, [approval, optimisticApproval]);
 
   async function toggleApprover(approver: ApproverId) {
     if (!enabled || loading) return;
@@ -61,26 +68,7 @@ export function useApproverSignOff({
     setLoading(true);
 
     try {
-      const res = await fetch("/api/approvals", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          mockupVersionId,
-          approver,
-          approved: !currentlySigned,
-          appId,
-          campaignId,
-          mockupType,
-          version,
-        }),
-      });
-
-      if (!res.ok) {
-        const payload = await res.json().catch(() => null);
-        throw new Error(payload?.error || "Could not save approval.");
-      }
-
-      const saved = (await res.json()) as ApprovalRecord;
+      const saved = await setApprover(mockupVersionId, approver, !currentlySigned);
       setOptimisticApproval(saved);
       const wasFullyApproved = isFullyApproved(approval);
       onUpdated?.();

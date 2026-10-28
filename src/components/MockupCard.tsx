@@ -8,6 +8,7 @@ import { useApproverSignOff } from "@/hooks/useApproverSignOff";
 import { ApprovalCelebrationModal } from "./ApprovalCelebrationModal";
 import { pickRandomAffirmation, type ApprovalAffirmation } from "@/lib/approvalAffirmations";
 import { withBasePath } from "@/lib/publicPath";
+import { addComment } from "@/lib/reviewBoard";
 
 type Version = {
   id: string;
@@ -136,23 +137,14 @@ export function MockupCard({
     if (!comment.trim() || !activeVersion || !isLatest) return;
     setLoading(true);
     setCommentError(null);
-    const res = await fetch("/api/comments", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        mockupVersionId: activeVersion.id,
-        text: comment.trim(),
-        appId,
-        campaignId,
-        mockupType: type,
-        version: activeVersion.version,
-      }),
-    });
-    setLoading(false);
-    if (!res.ok) {
+    try {
+      await addComment(activeVersion.id, comment.trim());
+    } catch {
+      setLoading(false);
       setCommentError("Could not post comment. Please try again.");
       return;
     }
+    setLoading(false);
     setComment("");
     onUpdated?.();
   }

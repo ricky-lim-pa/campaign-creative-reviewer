@@ -10,6 +10,7 @@ import { ProgressBar } from "@/components/StatusBadge";
 import { getApp } from "@/lib/apps";
 import { getApprovalStats } from "@/lib/stats";
 import { fetchCampaign } from "@/lib/publicPath";
+import { loadReviewBoard, mergeCampaignReview, type ReviewBoard } from "@/lib/reviewBoard";
 import { parseReportUrls } from "@/lib/types";
 
 type CampaignData = {
@@ -62,16 +63,30 @@ export default function CampaignReviewPage() {
   const params = useParams<{ app: string; campaignId: string }>();
   const app = getApp(params.app);
   const [campaign, setCampaign] = useState<CampaignData | null>(null);
+  const [board, setBoard] = useState<ReviewBoard | null>(null);
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
-    const data = await fetchCampaign(params.campaignId);
-    if (data) setCampaign(data);
+    const [data, nextBoard] = await Promise.all([
+      fetchCampaign(params.campaignId),
+      loadReviewBoard(true),
+    ]);
+    if (data) setCampaign(mergeCampaignReview(data, nextBoard));
+    setBoard(nextBoard);
     setLoading(false);
   }, [params.campaignId]);
 
   useEffect(() => {
     load();
+    const timer = window.setInterval(load, 15000);
+    function onVisible() {
+      if (document.visibilityState === "visible") load();
+    }
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
   }, [load]);
 
   if (!app) return <p className="p-8">App not found</p>;
@@ -129,6 +144,13 @@ export default function CampaignReviewPage() {
 
       <section className="hub-section--tight pb-8">
         <div className="hub-container max-w-[1600px] space-y-6">
+          {board && !board.live ? (
+            <p className="text-sm text-hub-muted">
+              {board.ok
+                ? "Showing the last shared copy. Live updates did not load."
+                : "Live approvals could not be loaded."}
+            </p>
+          ) : null}
           <AssetReviewViewer
             mockups={campaign.mockups}
             campaignId={campaign.id}

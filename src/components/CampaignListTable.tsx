@@ -16,6 +16,7 @@ export type CampaignListRow = {
   approvedCount?: number;
   totalAssets?: number;
   fullyApproved?: boolean;
+  versionIds?: string[];
 };
 
 type CampaignListTableProps = {

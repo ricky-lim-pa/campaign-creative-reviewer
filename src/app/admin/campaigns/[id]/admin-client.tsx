@@ -11,6 +11,7 @@ import { MockupUploadForm } from "@/components/MockupUploadForm";
 import { APPS, MOCKUP_TYPES } from "@/lib/apps";
 import { groupMockupsByType } from "@/lib/mockups";
 import { AppIcon } from "@/components/AppIcon";
+import { loadReviewBoard, mergeCampaignReview } from "@/lib/reviewBoard";
 
 type Campaign = {
   id: string;
@@ -62,7 +63,9 @@ export default function AdminCampaignPage() {
 
   const load = useCallback(async () => {
     const res = await fetch(`/api/campaigns/${params.id}`);
-    if (res.ok) setCampaign(await res.json());
+    if (!res.ok) return;
+    const data = await res.json();
+    setCampaign(mergeCampaignReview(data, await loadReviewBoard(true)));
   }, [params.id]);
 
   useEffect(() => {
