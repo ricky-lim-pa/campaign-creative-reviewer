@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ReviewCampaignBoard } from "@/components/ReviewCampaignBoard";
 import { prisma, ensureSettings } from "@/lib/db";
 import { isCampaignApproved } from "@/lib/approvals";
+import { mockupsForApproval } from "@/lib/creatives";
 
 export const dynamic = "force-dynamic";
 
@@ -24,17 +25,20 @@ export default async function ReviewHomePage() {
     },
   });
 
-  const campaigns = rows.map((c) => ({
-    id: c.id,
-    appId: c.appId,
-    title: c.title,
-    region: c.region,
-    startDate: c.startDate.toISOString(),
-    endDate: c.endDate.toISOString(),
-    totalAssets: c.mockups.length,
-    fullyApproved: isCampaignApproved(c),
-    versionIds: c.mockups.map((mockup) => mockup.versions[0]?.id).filter((id): id is string => Boolean(id)),
-  }));
+  const campaigns = rows.map((c) => {
+    const visible = mockupsForApproval(c.mockups);
+    return {
+      id: c.id,
+      appId: c.appId,
+      title: c.title,
+      region: c.region,
+      startDate: c.startDate.toISOString(),
+      endDate: c.endDate.toISOString(),
+      totalAssets: visible.length,
+      fullyApproved: isCampaignApproved(c),
+      versionIds: visible.map((mockup) => mockup.versions[0]?.id).filter((id): id is string => Boolean(id)),
+    };
+  });
 
   return (
     <div className="hub-page bg-hub-cream">

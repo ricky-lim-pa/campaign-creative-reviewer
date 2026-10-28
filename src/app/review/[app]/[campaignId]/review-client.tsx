@@ -9,6 +9,7 @@ import { CampaignMeta, CampaignResourceLinks } from "@/components/CampaignMeta";
 import { ProgressBar } from "@/components/StatusBadge";
 import { getApp } from "@/lib/apps";
 import { getApprovalStats } from "@/lib/stats";
+import { mockupsForApproval } from "@/lib/creatives";
 import { fetchCampaign } from "@/lib/publicPath";
 import { loadReviewBoard, mergeCampaignReview, type ReviewBoard } from "@/lib/reviewBoard";
 import { parseReportUrls } from "@/lib/types";
@@ -93,7 +94,7 @@ export default function CampaignReviewPage() {
   if (loading) return <p className="p-8 text-hub-muted">Loading...</p>;
   if (!campaign) return <p className="p-8">Campaign not found</p>;
 
-  const stats = getApprovalStats(campaign.mockups);
+  const stats = getApprovalStats(mockupsForApproval(campaign.mockups));
   const reportLinks = parseReportUrls(campaign.kpi?.reportUrls || "[]");
   const performance = [
     { label: "Overall sales", value: campaign.kpi?.overallSales },

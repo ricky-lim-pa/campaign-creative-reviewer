@@ -1,0 +1,16 @@
+---
+description: Hide EU creatives from approval when the campaign already has a UK creative
+alwaysApply: true
+---
+
+# UK creative covers EU
+
+When a campaign has a UK creative, do not show EU creatives for approval.
+
+- A UK creative has UK as its own token in the label or filename.
+- An EU-only creative has EU as its own token and does not also have UK.
+- If any UK creative is present, leave EU-only creatives off the review page, out of the approval count, and out of Approved, Needs Review, and At risk.
+- If the campaign has no UK creative, keep the EU creatives on the page.
+- A creative labeled for both UK and EU stays visible. It is the UK version.
+
+Holiday Bauble Sale has UK McHome and UK McPO, so the EU McHome and EU McPO are not shown. Holiday Savings Spectacular has only EU creatives, so those stay.

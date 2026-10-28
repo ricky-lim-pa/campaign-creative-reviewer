@@ -1,3 +1,5 @@
+import { mockupsForApproval } from "@/lib/creatives";
+
 export type ApprovalRecord = {
   rogerApproved: boolean;
   rogerApprovedAt?: string | Date | null;
@@ -33,14 +35,19 @@ export function isFullyApproved(
 
 type CampaignApprovalSource = {
   title: string;
-  mockups: { versions: { approval: Pick<ApprovalRecord, "rogerApproved" | "toddApproved"> | null }[] }[];
+  mockups: {
+    label?: string | null;
+    versions: { approval: Pick<ApprovalRecord, "rogerApproved" | "toddApproved"> | null }[];
+  }[];
 };
 
 /** Signed creative counts. A few campaigns were approved before assets were added here. */
 export function isCampaignApproved(campaign: CampaignApprovalSource) {
-  if (campaign.mockups.length > 0) {
-    return campaign.mockups.every((mockup) => isFullyApproved(mockup.versions[0]?.approval));
+  const mockups = mockupsForApproval(campaign.mockups);
+  if (mockups.length > 0) {
+    return mockups.every((mockup) => isFullyApproved(mockup.versions[0]?.approval));
   }
+  if (campaign.mockups.length > 0) return false;
   return /movie prize stakes|free holiday ornament/i.test(campaign.title);
 }
 

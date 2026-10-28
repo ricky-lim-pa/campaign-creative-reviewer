@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ExecReviewStage } from "@/components/ExecReviewStage";
 import { CampaignCompleteModal } from "@/components/CampaignCompleteModal";
 import { pickRandomCampaignAffirmation, type ApprovalAffirmation } from "@/lib/approvalAffirmations";
+import { mockupsForApproval } from "@/lib/creatives";
 
 type ReviewMockup = {
   id: string;
@@ -52,7 +53,7 @@ export function AssetReviewViewer({
 }: AssetReviewViewerProps) {
   const queue = useMemo(
     () =>
-      [...mockups]
+      mockupsForApproval([...mockups])
         .filter((mockup) => mockup.versions.length > 0)
         .sort((a, b) => a.sortOrder - b.sortOrder),
     [mockups]
