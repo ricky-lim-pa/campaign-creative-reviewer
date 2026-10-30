@@ -17,14 +17,12 @@ export function ReviewCampaignBoard({ rows }: { rows: CampaignListRow[] }) {
     }
 
     refresh();
-    const timer = window.setInterval(refresh, 15000);
     function onVisible() {
       if (document.visibilityState === "visible") refresh();
     }
     document.addEventListener("visibilitychange", onVisible);
     return () => {
       cancel = true;
-      window.clearInterval(timer);
       document.removeEventListener("visibilitychange", onVisible);
     };
   }, []);

@@ -79,13 +79,11 @@ export default function CampaignReviewPage() {
 
   useEffect(() => {
     load();
-    const timer = window.setInterval(load, 15000);
     function onVisible() {
       if (document.visibilityState === "visible") load();
     }
     document.addEventListener("visibilitychange", onVisible);
     return () => {
-      window.clearInterval(timer);
       document.removeEventListener("visibilitychange", onVisible);
     };
   }, [load]);

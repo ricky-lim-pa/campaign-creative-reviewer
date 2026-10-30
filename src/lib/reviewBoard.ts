@@ -1,7 +1,6 @@
+import store from "@/data/review-board-store.json";
 import { withBasePath } from "@/lib/publicPath";
 import type { ApprovalRecord, ApproverId } from "@/lib/approvals";
-
-const BOARD_URL = "https://crudcrud.com/api/b54a83a873d24d88aa850499c08b506b";
 
 export type ReviewComment = {
   id: string;
@@ -27,6 +26,11 @@ type CommentDoc = {
   text: string;
   author: string;
   createdAt: string;
+};
+
+type BoardDoc = {
+  approvals: ApprovalDoc[];
+  comments: CommentDoc[];
 };
 
 export type ReviewBoard = {
@@ -94,20 +98,41 @@ function indexBoard(approvals: ApprovalDoc[], comments: CommentDoc[], live: bool
   return { ok: true, live, approvals: approvalMap, comments: commentMap };
 }
 
-async function readJson<T>(url: string): Promise<T> {
-  const response = await fetch(url, {
+function normalize(body: Partial<BoardDoc> | null | undefined): BoardDoc {
+  return {
+    approvals: Array.isArray(body?.approvals) ? body.approvals : [],
+    comments: Array.isArray(body?.comments) ? body.comments : [],
+  };
+}
+
+async function loadDoc(): Promise<BoardDoc> {
+  const response = await fetch(store.url, {
     cache: "no-store",
     headers: { Accept: "application/json" },
   });
   if (!response.ok) throw new Error(`Could not load shared review (${response.status})`);
-  return response.json() as Promise<T>;
+  return normalize((await response.json()) as Partial<BoardDoc>);
+}
+
+async function saveDoc(doc: BoardDoc, failure: string) {
+  const response = await fetch(store.url, {
+    method: "PUT",
+    cache: "no-store",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "X-Owner-Token": store.token,
+    },
+    body: JSON.stringify(normalize(doc)),
+  });
+  if (!response.ok) throw new Error(failure);
 }
 
 async function loadSnapshot(): Promise<ReviewBoard> {
   const response = await fetch(withBasePath("/data/review-board.json"), { cache: "no-store" });
   if (!response.ok) return emptyBoard();
-  const body = (await response.json()) as { approvals?: ApprovalDoc[]; comments?: CommentDoc[] };
-  return indexBoard(body.approvals ?? [], body.comments ?? [], false);
+  const body = normalize((await response.json()) as Partial<BoardDoc>);
+  return indexBoard(body.approvals, body.comments, false);
 }
 
 export function invalidateReviewBoard() {
@@ -120,11 +145,8 @@ export async function loadReviewBoard(force = false): Promise<ReviewBoard> {
 
   inflight = (async () => {
     try {
-      const [approvals, comments] = await Promise.all([
-        readJson<ApprovalDoc[]>(`${BOARD_URL}/approvals`),
-        readJson<CommentDoc[]>(`${BOARD_URL}/comments`),
-      ]);
-      const board = indexBoard(approvals, comments, true);
+      const doc = await loadDoc();
+      const board = indexBoard(doc.approvals, doc.comments, true);
       cached = { at: Date.now(), board };
       return board;
     } catch {
@@ -168,28 +190,6 @@ export function liveCampaignApproved(versionIds: string[], board: ReviewBoard | 
   });
 }
 
-async function writeApproval(existingId: string | undefined, payload: Omit<ApprovalDoc, "_id">) {
-  if (!existingId) {
-    const response = await fetch(`${BOARD_URL}/approvals`, {
-      method: "POST",
-      cache: "no-store",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(payload),
-    });
-    if (!response.ok) throw new Error("Could not save approval.");
-    return (await response.json()) as ApprovalDoc;
-  }
-
-  const response = await fetch(`${BOARD_URL}/approvals/${existingId}`, {
-    method: "PUT",
-    cache: "no-store",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(payload),
-  });
-  if (!response.ok) throw new Error("Could not save approval.");
-  return { _id: existingId, ...payload };
-}
-
 export async function setApprover(
   versionId: string,
   approver: ApproverId,
@@ -199,26 +199,28 @@ export async function setApprover(
 
   for (let attempt = 0; attempt < 4; attempt += 1) {
     try {
-      const docs = await readJson<ApprovalDoc[]>(`${BOARD_URL}/approvals`);
-      const existing = docs.find((doc) => doc.versionId === versionId);
+      const doc = await loadDoc();
+      const existing = doc.approvals.find((item) => item.versionId === versionId);
       const now = new Date().toISOString();
       const rogerApproved = approver === "roger" ? signed : Boolean(existing?.rogerApproved);
       const toddApproved = approver === "todd" ? signed : Boolean(existing?.toddApproved);
       const approved = rogerApproved && toddApproved;
-      const payload = {
+      const payload: ApprovalDoc = {
+        _id: existing?._id || crypto.randomUUID(),
         versionId,
         rogerApproved,
         rogerApprovedAt: approver === "roger" ? (signed ? now : null) : (existing?.rogerApprovedAt ?? null),
         toddApproved,
         toddApprovedAt: approver === "todd" ? (signed ? now : null) : (existing?.toddApprovedAt ?? null),
         approved,
-        approvedAt: approved ? (existing?.approvedAt && existing.approved ? existing.approvedAt : now) : null,
+        approvedAt: approved ? (existing?.approved && existing.approvedAt ? existing.approvedAt : now) : null,
       };
-      await writeApproval(existing?._id, payload);
+      const approvals = existing
+        ? doc.approvals.map((item) => (item.versionId === versionId ? payload : item))
+        : [...doc.approvals, payload];
+      await saveDoc({ approvals, comments: doc.comments }, "Could not save approval.");
 
-      const fresh = (await readJson<ApprovalDoc[]>(`${BOARD_URL}/approvals`)).find(
-        (doc) => doc.versionId === versionId
-      );
+      const fresh = (await loadDoc()).approvals.find((item) => item.versionId === versionId);
       const otherMatches =
         approver === "roger"
           ? Boolean(fresh?.toddApproved) === toddApproved
@@ -239,19 +241,19 @@ export async function setApprover(
 }
 
 export async function addComment(versionId: string, text: string, author = "Executive"): Promise<ReviewComment> {
-  const response = await fetch(`${BOARD_URL}/comments`, {
-    method: "POST",
-    cache: "no-store",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify({
-      versionId,
-      text: text.trim(),
-      author,
-      createdAt: new Date().toISOString(),
-    }),
-  });
-  if (!response.ok) throw new Error("Could not post comment.");
-  const created = (await response.json()) as CommentDoc;
+  const trimmed = text.trim();
+  const doc = await loadDoc();
+  const created: CommentDoc = {
+    _id: crypto.randomUUID(),
+    versionId,
+    text: trimmed,
+    author,
+    createdAt: new Date().toISOString(),
+  };
+  await saveDoc(
+    { approvals: doc.approvals, comments: [...doc.comments, created] },
+    "Could not post comment."
+  );
   invalidateReviewBoard();
   return {
     id: created._id,
