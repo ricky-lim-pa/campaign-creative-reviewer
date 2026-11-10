@@ -136,7 +136,7 @@ export function CampaignListTable({
                 <td className="whitespace-nowrap text-right">
                   {open ? (
                     <Link href={href} className="hub-table-link">
-                      {linkLabel} →
+                      {showReviewStatus && label === "Approved" ? "View" : linkLabel} →
                     </Link>
                   ) : null}
                 </td>
