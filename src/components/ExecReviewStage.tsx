@@ -410,7 +410,8 @@ export function ExecReviewStage({
       await addComment(activeVersion.id, comment.trim());
     } catch {
       setLoading(false);
-      setCommentError("Could not post comment. Please try again.");
+      setCommentError("Could not confirm that your feedback was saved. Check the feedback list before trying again.");
+      onUpdated();
       return;
     }
     setLoading(false);

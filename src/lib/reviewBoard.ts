@@ -60,6 +60,8 @@ const emptyBoard = (): ReviewBoard => ({
 let cached: { at: number; board: ReviewBoard } | null = null;
 let inflight: Promise<ReviewBoard> | null = null;
 
+export const REVIEW_REFRESH_INTERVAL_MS = 30_000;
+
 function asRecord(doc: ApprovalDoc): ApprovalRecord {
   const rogerApproved = Boolean(doc.rogerApproved);
   const toddApproved = Boolean(doc.toddApproved);
@@ -255,6 +257,10 @@ export async function addComment(versionId: string, text: string, author = "Exec
     "Could not post comment."
   );
   invalidateReviewBoard();
+  const saved = await loadDoc();
+  if (!saved.comments.some((entry) => entry._id === created._id && entry.versionId === versionId)) {
+    throw new Error("Could not confirm that the comment was saved.");
+  }
   return {
     id: created._id,
     text: created.text,

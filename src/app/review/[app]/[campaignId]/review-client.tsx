@@ -11,7 +11,7 @@ import { getApp } from "@/lib/apps";
 import { getApprovalStats } from "@/lib/stats";
 import { mockupsForApproval } from "@/lib/creatives";
 import { fetchCampaign } from "@/lib/publicPath";
-import { loadReviewBoard, mergeCampaignReview, type ReviewBoard } from "@/lib/reviewBoard";
+import { loadReviewBoard, mergeCampaignReview, REVIEW_REFRESH_INTERVAL_MS, type ReviewBoard } from "@/lib/reviewBoard";
 import { parseReportUrls } from "@/lib/types";
 
 type CampaignData = {
@@ -83,7 +83,9 @@ export default function CampaignReviewPage() {
       if (document.visibilityState === "visible") load();
     }
     document.addEventListener("visibilitychange", onVisible);
+    const interval = window.setInterval(onVisible, REVIEW_REFRESH_INTERVAL_MS);
     return () => {
+      window.clearInterval(interval);
       document.removeEventListener("visibilitychange", onVisible);
     };
   }, [load]);

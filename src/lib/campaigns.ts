@@ -113,12 +113,28 @@ export function countCampaignsByMonth(campaigns: CalendarCampaign[]) {
   );
 }
 
-/** Open campaigns that start by the end of the first week of November. */
-export const REVIEW_RISK_THROUGH = "2026-11-07";
+export const REVIEW_LEAD_DAYS = 7;
 
-export function isCampaignAtRisk(campaign: { fullyApproved?: boolean; startDate: string | Date }) {
+const reviewDateFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "America/Los_Angeles",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
+export function getReviewDate(now = new Date()) {
+  return reviewDateFormatter.format(now);
+}
+
+export function isCampaignAtRisk(
+  campaign: { fullyApproved?: boolean; startDate: string | Date; endDate: string | Date },
+  today: string,
+) {
   if (campaign.fullyApproved) return false;
-  return new Date(campaign.startDate).toISOString().slice(0, 10) <= REVIEW_RISK_THROUGH;
+  const cutoff = new Date(`${today}T00:00:00Z`);
+  cutoff.setUTCDate(cutoff.getUTCDate() + REVIEW_LEAD_DAYS + 1);
+  return new Date(campaign.endDate) >= new Date(`${today}T00:00:00Z`)
+    && new Date(campaign.startDate) < cutoff;
 }
 
 export type CampaignResourceLinks = {

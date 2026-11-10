@@ -60,12 +60,15 @@ export default function AdminCampaignPage() {
   const [uploadMockupId, setUploadMockupId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     const res = await fetch(`/api/campaigns/${params.id}`);
     if (!res.ok) return;
     const data = await res.json();
-    setCampaign(mergeCampaignReview(data, await loadReviewBoard(true)));
+    setCampaign(data);
+    const board = await loadReviewBoard(true);
+    setCampaign((current) => current === data ? mergeCampaignReview(data, board) : current);
   }, [params.id]);
 
   useEffect(() => {
@@ -75,10 +78,16 @@ export default function AdminCampaignPage() {
   async function uploadVersion(form: HTMLFormElement, mockupId: string) {
     setLoading(true);
     setUploadMessage(null);
+    setError(null);
     const formData = new FormData(form);
     formData.set("mockupId", mockupId);
-    const res = await fetch("/api/mockups/versions", { method: "POST", body: formData });
-    const data = res.ok ? await res.json() : null;
+    const res = await fetch("/api/mockups/versions", { method: "POST", body: formData }).catch(() => null);
+    if (!res?.ok) {
+      setError("The upload did not complete. Your selections are still in the form.");
+      setLoading(false);
+      return;
+    }
+    const data = await res.json();
     setUploadMockupId(null);
     setLoading(false);
     form.reset();
@@ -94,7 +103,12 @@ export default function AdminCampaignPage() {
 
   async function deleteMockup(mockupId: string) {
     if (!confirm("Delete this asset and all of its versions?")) return;
-    await fetch(`/api/mockups?id=${mockupId}`, { method: "DELETE" });
+    setError(null);
+    const res = await fetch(`/api/mockups?id=${mockupId}`, { method: "DELETE" }).catch(() => null);
+    if (!res?.ok) {
+      setError("Could not remove the asset. Please try again.");
+      return;
+    }
     await load();
   }
 
@@ -152,6 +166,8 @@ export default function AdminCampaignPage() {
         </div>
 
         <CampaignMetaForm campaign={campaign} onSaved={load} />
+
+        {error ? <p role="alert" className="mt-4 text-sm font-medium text-red-600">{error}</p> : null}
 
         {uploadMessage ? (
           <p className="mt-4 rounded-xl border border-hub-green/30 bg-hub-green/10 px-4 py-2 text-sm font-medium text-hub-green-text">

@@ -27,6 +27,7 @@ type CampaignListTableProps = {
   linkPattern: "review-app" | "review-any" | "admin";
   appId?: string;
   showReviewStatus?: boolean;
+  reviewDate?: string | null;
 };
 
 function hrefForRow(row: CampaignListRow, linkPattern: CampaignListTableProps["linkPattern"], appId?: string) {
@@ -35,8 +36,8 @@ function hrefForRow(row: CampaignListRow, linkPattern: CampaignListTableProps["l
   return `/admin/campaigns/${row.id}`;
 }
 
-function reviewLabel(row: CampaignListRow) {
-  if (isCampaignAtRisk(row)) return "At risk";
+function reviewLabel(row: CampaignListRow, reviewDate?: string | null) {
+  if (reviewDate && isCampaignAtRisk(row, reviewDate)) return "Urgent";
   const assets = row.totalAssets ?? 0;
   if (assets === 0 && !row.fullyApproved) return "Assets Pending";
   return row.fullyApproved ? "Approved" : "Needs Review";
@@ -49,6 +50,7 @@ export function CampaignListTable({
   linkPattern,
   appId,
   showReviewStatus = false,
+  reviewDate,
 }: CampaignListTableProps) {
   const router = useRouter();
 
@@ -80,8 +82,8 @@ export function CampaignListTable({
           {rows.map((row) => {
             const app = getApp(row.appId);
             const open = canOpen(row);
-            const label = reviewLabel(row);
-            const atRisk = label === "At risk";
+            const label = reviewLabel(row, reviewDate);
+            const atRisk = label === "Urgent";
             const href = hrefForRow(row, linkPattern, appId);
             return (
               <tr
@@ -124,7 +126,7 @@ export function CampaignListTable({
                       className={
                         label === "Approved"
                           ? "hub-tag hub-tag--approved"
-                          : label === "At risk"
+                          : atRisk
                             ? "hub-tag hub-tag--risk"
                             : "hub-tag hub-tag--review"
                       }
