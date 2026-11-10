@@ -137,12 +137,26 @@ function AssetCompareSlider({
   );
 }
 
-function AssetStaticViewer({ src, alt }: { src: string; alt: string }) {
+function AssetStaticViewer({ src, alt, email }: { src: string; alt: string; email: boolean }) {
+  const [longEmail, setLongEmail] = useState(false);
+
   return (
     <div className="hub-theater__stage hub-theater__stage--static">
-      <div className="hub-theater__canvas">
+      {longEmail ? <p className="hub-theater__email-hint">Scroll to read the full email</p> : null}
+      <div
+        className={longEmail ? "hub-theater__email-scroll" : "hub-theater__canvas"}
+        role={longEmail ? "region" : undefined}
+        aria-label={longEmail ? "Scrollable email preview" : undefined}
+        tabIndex={longEmail ? 0 : undefined}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} className="hub-theater__image hub-theater__image--static" draggable={false} />
+        <img
+          src={src}
+          alt={alt}
+          className={longEmail ? "hub-theater__email-image" : "hub-theater__image hub-theater__image--static"}
+          draggable={false}
+          onLoad={({ currentTarget: image }) => setLongEmail(email && image.naturalHeight > 3 * image.naturalWidth)}
+        />
       </div>
     </div>
   );
@@ -594,7 +608,7 @@ export function ExecReviewStage({
                 isFullscreen={isFullscreen}
               />
             ) : (
-              <AssetStaticViewer src={withBasePath(activeVersion.imagePath || "")} alt={displayTitle} />
+              <AssetStaticViewer key={activeVersion.id} src={withBasePath(activeVersion.imagePath || "")} alt={displayTitle} email={type === "email"} />
             )
           ) : (
             <div className="hub-theater__stage hub-theater__stage--empty">

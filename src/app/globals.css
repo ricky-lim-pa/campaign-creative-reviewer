@@ -821,6 +821,24 @@ select {
     @apply cursor-default;
   }
 
+  .hub-theater__email-hint {
+    @apply border-b border-hub-border bg-white px-3 py-2 text-center text-xs font-medium text-hub-muted;
+  }
+
+  .hub-theater__email-scroll {
+    @apply overflow-y-auto p-2 md:p-4;
+    max-height: min(76dvh, 760px);
+  }
+
+  .hub-theater__email-scroll:focus-visible {
+    @apply outline outline-2 -outline-offset-2 outline-hub-green;
+  }
+
+  .hub-theater__email-image {
+    @apply mx-auto block h-auto select-none;
+    max-width: min(100%, 680px);
+  }
+
   .hub-theater__static-hint {
     @apply absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/90 px-3 py-1 text-[10px] font-medium text-hub-muted shadow-sm backdrop-blur-sm;
   }
