@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ReviewCampaignBoard } from "@/components/ReviewCampaignBoard";
 import { prisma, ensureSettings } from "@/lib/db";
 import { isCampaignApproved } from "@/lib/approvals";
@@ -44,11 +43,6 @@ export default async function ReviewHomePage() {
     <div className="hub-page bg-hub-cream">
       <main className="hub-container hub-main pb-8">
         <ReviewCampaignBoard rows={campaigns} />
-        <p className="mt-6 text-center text-sm text-hub-muted">
-          <Link href="/admin" className="font-medium text-hub-ink underline-offset-4 hover:underline">
-            Admin
-          </Link>
-        </p>
       </main>
     </div>
   );
