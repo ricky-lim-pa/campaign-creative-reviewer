@@ -5,6 +5,8 @@ import { ExecReviewStage } from "@/components/ExecReviewStage";
 import { CampaignCompleteModal } from "@/components/CampaignCompleteModal";
 import { pickRandomCampaignAffirmation, type ApprovalAffirmation } from "@/lib/approvalAffirmations";
 import { mockupsForApproval } from "@/lib/creatives";
+import { isFullyApproved } from "@/lib/approvals";
+import { getMockupTypeLabel } from "@/lib/apps";
 
 
 type ReviewMockup = {
@@ -112,21 +114,38 @@ export function AssetReviewViewer({
       {available.map(({ id, label, items }) => (
         <section key={id} id={`${sectionId}-${id}`} aria-label={label} hidden={active !== id}>
           <div className="hub-asset-stack">
-            {items.map((mockup) => (
-              <ExecReviewStage
-                key={mockup.id}
-                mockupId={mockup.id}
-                type={mockup.type}
-                label={mockup.label}
-                versions={mockup.versions}
-                campaignId={campaignId}
-                appId={appId}
-                hasNextAsset={false}
-                reviewMode={false}
-                onUpdated={onUpdated}
-                onApproved={() => setCampaignCompletePending(true)}
-              />
-            ))}
+            {items.map((mockup) => {
+              const viewer = (
+                <ExecReviewStage
+                  key={mockup.id}
+                  mockupId={mockup.id}
+                  type={mockup.type}
+                  label={mockup.label}
+                  versions={mockup.versions}
+                  campaignId={campaignId}
+                  appId={appId}
+                  hasNextAsset={false}
+                  reviewMode={false}
+                  onUpdated={onUpdated}
+                  onApproved={() => setCampaignCompletePending(true)}
+                />
+              );
+              if (!isFullyApproved(mockup.versions[0]?.approval)) return viewer;
+
+              return (
+                <details key={mockup.id} className="group hub-card-bordered overflow-hidden bg-white">
+                  <summary className="flex cursor-pointer list-none flex-wrap items-center gap-2 px-4 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-hub-green [&::-webkit-details-marker]:hidden">
+                    <span className="hub-tag hub-tag--approved">Approved</span>
+                    <span className="min-w-0 flex-1 text-sm font-semibold text-hub-heading">
+                      {mockup.label.trim() || getMockupTypeLabel(mockup.type)}
+                    </span>
+                    <span aria-hidden="true" className="text-sm font-semibold text-hub-ink group-open:hidden">View asset +</span>
+                    <span aria-hidden="true" className="hidden text-sm font-semibold text-hub-ink group-open:inline">Collapse −</span>
+                  </summary>
+                  {viewer}
+                </details>
+              );
+            })}
           </div>
         </section>
       ))}
