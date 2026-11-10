@@ -48,6 +48,7 @@ type ExecReviewStageProps = {
   appId: string;
   hasNextAsset?: boolean;
   reviewMode?: boolean;
+  reviewReady: boolean;
   onUpdated: () => void;
   onApproved?: () => void;
 };
@@ -139,6 +140,14 @@ function AssetCompareSlider({
 
 function AssetStaticViewer({ src, alt, email }: { src: string; alt: string; email: boolean }) {
   const [longEmail, setLongEmail] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const image = imageRef.current;
+    if (email && image?.complete && image.naturalWidth > 0) {
+      setLongEmail(image.naturalHeight > 3 * image.naturalWidth);
+    }
+  }, [email, src]);
 
   return (
     <div className="hub-theater__stage hub-theater__stage--static">
@@ -151,6 +160,7 @@ function AssetStaticViewer({ src, alt, email }: { src: string; alt: string; emai
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
+          ref={imageRef}
           src={src}
           alt={alt}
           className={longEmail ? "hub-theater__email-image" : "hub-theater__image hub-theater__image--static"}
@@ -316,6 +326,7 @@ export function ExecReviewStage({
   appId,
   hasNextAsset = false,
   reviewMode = false,
+  reviewReady,
   onUpdated,
   onApproved,
 }: ExecReviewStageProps) {
@@ -387,7 +398,7 @@ export function ExecReviewStage({
     campaignId,
     mockupType: type,
     version: activeVersion?.version,
-    enabled: Boolean(isLatest && activeVersion),
+    enabled: Boolean(reviewReady && isLatest && activeVersion),
     onUpdated,
     onFullyApproved: () => setCelebration(pickRandomAffirmation()),
   });
@@ -417,7 +428,7 @@ export function ExecReviewStage({
 
   async function submitComment(event: React.FormEvent) {
     event.preventDefault();
-    if (!comment.trim() || !activeVersion || !isLatest) return;
+    if (!reviewReady || !comment.trim() || !activeVersion || !isLatest) return;
     setLoading(true);
     setCommentError(null);
     try {
@@ -544,7 +555,7 @@ export function ExecReviewStage({
         {commentError ? <p className="text-sm font-medium text-red-600">{commentError}</p> : null}
         <button
           type="submit"
-          disabled={loading || !comment.trim()}
+          disabled={!reviewReady || loading || !comment.trim()}
           className="hub-btn-primary w-full justify-center"
         >
           Post comment
@@ -558,13 +569,13 @@ export function ExecReviewStage({
       <ApproverSignOffButton
         approver="roger"
         signed={rogerApproved}
-        disabled={approvalLoading || loading}
+        disabled={!reviewReady || approvalLoading || loading}
         onClick={() => toggleApprover("roger")}
       />
       <ApproverSignOffButton
         approver="todd"
         signed={toddApproved}
-        disabled={approvalLoading || loading}
+        disabled={!reviewReady || approvalLoading || loading}
         onClick={() => toggleApprover("todd")}
       />
       {approvalError ? <p className="text-sm font-medium text-red-600">{approvalError}</p> : null}

@@ -110,6 +110,7 @@ function normalize(body: Partial<BoardDoc> | null | undefined): BoardDoc {
 async function loadDoc(): Promise<BoardDoc> {
   const response = await fetch(store.url, {
     cache: "no-store",
+    signal: AbortSignal.timeout(8_000),
     headers: { Accept: "application/json" },
   });
   if (!response.ok) throw new Error(`Could not load shared review (${response.status})`);
@@ -131,7 +132,10 @@ async function saveDoc(doc: BoardDoc, failure: string) {
 }
 
 async function loadSnapshot(): Promise<ReviewBoard> {
-  const response = await fetch(withBasePath("/data/review-board.json"), { cache: "no-store" });
+  const response = await fetch(withBasePath("/data/review-board.json"), {
+    cache: "no-store",
+    signal: AbortSignal.timeout(5_000),
+  });
   if (!response.ok) return emptyBoard();
   const body = normalize((await response.json()) as Partial<BoardDoc>);
   return indexBoard(body.approvals, body.comments, false);

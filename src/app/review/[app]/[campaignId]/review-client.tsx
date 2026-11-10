@@ -1,16 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import { BackLink } from "@/components/BackLink";
 import { AssetReviewViewer } from "@/components/AssetReviewViewer";
 import { AppIcon } from "@/components/AppIcon";
 import { CampaignMeta, CampaignResourceLinks } from "@/components/CampaignMeta";
 import { ProgressBar } from "@/components/StatusBadge";
-import { getApp } from "@/lib/apps";
 import { getApprovalStats } from "@/lib/stats";
 import { mockupsForApproval } from "@/lib/creatives";
-import { fetchCampaign } from "@/lib/publicPath";
 import { loadReviewBoard, mergeCampaignReview, REVIEW_REFRESH_INTERVAL_MS, type ReviewBoard } from "@/lib/reviewBoard";
 import { parseReportUrls } from "@/lib/types";
 
@@ -60,22 +57,13 @@ type CampaignData = {
   }>;
 };
 
-export default function CampaignReviewPage() {
-  const params = useParams<{ app: string; campaignId: string }>();
-  const app = getApp(params.app);
-  const [campaign, setCampaign] = useState<CampaignData | null>(null);
+export default function CampaignReviewPage({ initialCampaign }: { initialCampaign: CampaignData }) {
   const [board, setBoard] = useState<ReviewBoard | null>(null);
-  const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
-    const [data, nextBoard] = await Promise.all([
-      fetchCampaign(params.campaignId),
-      loadReviewBoard(true),
-    ]);
-    if (data) setCampaign(mergeCampaignReview(data, nextBoard));
+    const nextBoard = await loadReviewBoard(true);
     setBoard(nextBoard);
-    setLoading(false);
-  }, [params.campaignId]);
+  }, []);
 
   useEffect(() => {
     load();
@@ -90,10 +78,7 @@ export default function CampaignReviewPage() {
     };
   }, [load]);
 
-  if (!app) return <p className="p-8">App not found</p>;
-  if (loading) return <p className="p-8 text-hub-muted">Loading...</p>;
-  if (!campaign) return <p className="p-8">Campaign not found</p>;
-
+  const campaign = mergeCampaignReview(initialCampaign, board);
   const stats = getApprovalStats(mockupsForApproval(campaign.mockups));
   const reportLinks = parseReportUrls(campaign.kpi?.reportUrls || "[]");
   const performance = [
@@ -159,6 +144,7 @@ export default function CampaignReviewPage() {
             campaignTitle={campaign.title}
             approvedCount={stats.approved}
             totalCount={stats.total}
+            reviewReady={board?.live === true}
             onUpdated={load}
           />
           {reportLinks.length > 0 || performance.length > 0 ? (

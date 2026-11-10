@@ -42,6 +42,7 @@ type AssetReviewViewerProps = {
   campaignTitle: string;
   approvedCount: number;
   totalCount: number;
+  reviewReady: boolean;
   onUpdated: () => void;
 };
 
@@ -52,6 +53,7 @@ export function AssetReviewViewer({
   campaignTitle,
   approvedCount,
   totalCount,
+  reviewReady,
   onUpdated,
 }: AssetReviewViewerProps) {
   const queue = useMemo(
@@ -126,6 +128,7 @@ export function AssetReviewViewer({
                   appId={appId}
                   hasNextAsset={false}
                   reviewMode={false}
+                  reviewReady={reviewReady}
                   onUpdated={onUpdated}
                   onApproved={() => setCampaignCompletePending(true)}
                 />
