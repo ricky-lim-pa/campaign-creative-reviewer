@@ -1,10 +1,16 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { ExecReviewStage } from "@/components/ExecReviewStage";
 import { CampaignCompleteModal } from "@/components/CampaignCompleteModal";
 import { pickRandomCampaignAffirmation, type ApprovalAffirmation } from "@/lib/approvalAffirmations";
 import { mockupsForApproval } from "@/lib/creatives";
+
+// The November Special Offer replaced these two Cyber Week placements. Admin still keeps their history.
+const retiredReviewVersions = new Set([
+  "cmvrei56h0008qajga5eh0xtd",
+  "cmvrei56t000bqajg6vmsm932",
+]);
 
 type ReviewMockup = {
   id: string;
@@ -54,12 +60,24 @@ export function AssetReviewViewer({
   const queue = useMemo(
     () =>
       mockupsForApproval([...mockups])
+        .map((mockup) => ({
+          ...mockup,
+          versions: mockup.versions.filter((version) => !retiredReviewVersions.has(version.id)),
+        }))
         .filter((mockup) => mockup.versions.length > 0)
         .sort((a, b) => a.sortOrder - b.sortOrder),
     [mockups]
   );
   const [campaignCompletePending, setCampaignCompletePending] = useState(false);
   const [campaignComplete, setCampaignComplete] = useState<ApprovalAffirmation | null>(null);
+  const [section, setSection] = useState<"assets" | "emails">("assets");
+  const sectionId = useId();
+  const sections = [
+    { id: "assets", label: "Assets", items: queue.filter((mockup) => mockup.type !== "email") },
+    { id: "emails", label: "Emails", items: queue.filter((mockup) => mockup.type === "email") },
+  ] as const;
+  const available = sections.filter(({ items }) => items.length > 0);
+  const active = available.find(({ id }) => id === section)?.id ?? available[0]?.id;
 
   useEffect(() => {
     if (!campaignCompletePending) return;
@@ -79,21 +97,43 @@ export function AssetReviewViewer({
   }
 
   return (
-    <div className="hub-asset-stack">
-      {queue.map((mockup) => (
-        <ExecReviewStage
-          key={mockup.id}
-          mockupId={mockup.id}
-          type={mockup.type}
-          label={mockup.label}
-          versions={mockup.versions}
-          campaignId={campaignId}
-          appId={appId}
-          hasNextAsset={false}
-          reviewMode={false}
-          onUpdated={onUpdated}
-          onApproved={() => setCampaignCompletePending(true)}
-        />
+    <div className="space-y-4">
+      {available.length > 1 ? (
+        <div role="group" aria-label="Campaign creative type" className="flex flex-wrap gap-2">
+          {available.map(({ id, label, items }) => (
+            <button
+              key={id}
+              type="button"
+              aria-pressed={active === id}
+              aria-controls={`${sectionId}-${id}`}
+              className={active === id ? "hub-btn-primary" : "hub-btn"}
+              onClick={() => setSection(id)}
+            >
+              {label} ({items.length})
+            </button>
+          ))}
+        </div>
+      ) : null}
+      {available.map(({ id, label, items }) => (
+        <section key={id} id={`${sectionId}-${id}`} aria-label={label} hidden={active !== id}>
+          <div className="hub-asset-stack">
+            {items.map((mockup) => (
+              <ExecReviewStage
+                key={mockup.id}
+                mockupId={mockup.id}
+                type={mockup.type}
+                label={mockup.label}
+                versions={mockup.versions}
+                campaignId={campaignId}
+                appId={appId}
+                hasNextAsset={false}
+                reviewMode={false}
+                onUpdated={onUpdated}
+                onApproved={() => setCampaignCompletePending(true)}
+              />
+            ))}
+          </div>
+        </section>
       ))}
       {campaignComplete ? (
         <CampaignCompleteModal
