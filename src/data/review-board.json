@@ -73,32 +73,32 @@
     {
       "_id": "6ae185250b1dad03e800838d",
       "versionId": "cmvqbhu1s000nqatscsw70cb1",
-      "rogerApproved": false,
-      "rogerApprovedAt": null,
-      "toddApproved": false,
-      "toddApprovedAt": null,
-      "approved": false,
-      "approvedAt": null
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
     },
     {
       "_id": "6ae185260b1dad03e800838e",
       "versionId": "cmvqbhu22000sqatsbxwbpprc",
-      "rogerApproved": false,
-      "rogerApprovedAt": null,
-      "toddApproved": false,
-      "toddApprovedAt": null,
-      "approved": false,
-      "approvedAt": null
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
     },
     {
       "_id": "6ae185260b1dad03e800838f",
       "versionId": "cmvqbhu2b000xqatstrhelk8a",
-      "rogerApproved": false,
-      "rogerApprovedAt": null,
-      "toddApproved": false,
-      "toddApprovedAt": null,
-      "approved": false,
-      "approvedAt": null
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
     },
     {
       "_id": "6ae185260b1dad03e8008390",
@@ -219,6 +219,106 @@
       "toddApprovedAt": "2026-11-10T16:10:56.213Z",
       "approved": true,
       "approvedAt": "2026-11-10T16:10:56.213Z"
+    },
+    {
+      "_id": "756556f3-21d5-4797-ab16-a000a8132153",
+      "versionId": "cmvqwgmhl001pqaego5ft7yyh",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "3124f628-26ba-4ce3-b393-51f398ca7b79",
+      "versionId": "cmvqwgmi0001vqaegf2hqec8b",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "970293fa-c4e3-4a7c-bcbe-f951e46d2986",
+      "versionId": "cmvtyh34j000bqaac0ggjr7u9",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "0e04b317-bb0d-4ad5-ba1d-d9cc398eca09",
+      "versionId": "cmvtyh34s000fqaac86hmvyo1",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "360a171c-ed58-4486-9af5-035fcd1f4df2",
+      "versionId": "cmvu85v0c0007qau0fq1v0tnh",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "5de595eb-2e7a-4400-94aa-8c07b4e69c12",
+      "versionId": "a79c0a90-8d51-4e80-9d85-3d28eee31677",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "ad8436af-3be4-47c3-a298-34d911490a96",
+      "versionId": "dd4ab9bd-14ec-4eb7-8e39-9cf7f857dc7f",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "87e08af9-3411-4ee7-9305-9836f6a9a636",
+      "versionId": "b70562ea-14d9-4ba5-88da-bad403d1c8e7",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "d1969587-188f-49fe-a91c-2eb6a0ebb464",
+      "versionId": "8bea0edc-66af-4267-8405-6f3696c2a233",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
+    },
+    {
+      "_id": "0698c98a-ac79-4aef-83a7-e8e1d9bcb82d",
+      "versionId": "a1f62e9f-6756-463c-bf04-e1437810a051",
+      "rogerApproved": true,
+      "rogerApprovedAt": "2026-11-10T22:58:28.215Z",
+      "toddApproved": true,
+      "toddApprovedAt": "2026-11-10T22:58:28.215Z",
+      "approved": true,
+      "approvedAt": "2026-11-10T22:58:28.215Z"
     }
   ],
   "comments": []
