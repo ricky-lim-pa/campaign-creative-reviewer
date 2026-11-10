@@ -123,7 +123,9 @@ const reviewDateFormatter = new Intl.DateTimeFormat("en-CA", {
 });
 
 export function getReviewDate(now = new Date()) {
-  return reviewDateFormatter.format(now);
+  const parts = reviewDateFormatter.formatToParts(now);
+  const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.type === type)?.value;
+  return `${part("year")}-${part("month")}-${part("day")}`;
 }
 
 export function isCampaignAtRisk(

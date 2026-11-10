@@ -1,0 +1,2679 @@
+[
+  {
+    "id": "touch-1793007810330",
+    "date": "2026-10-01",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "FOM (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007760446",
+    "date": "2026-10-01",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Sweeps Standalone",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008091481",
+    "date": "2026-10-02",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Sweeps Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793007723570",
+    "date": "2026-10-02",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "TMT",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793007630292",
+    "date": "2026-10-02",
+    "channel": "email",
+    "app": "photo-tiles",
+    "title": "FOM",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008098687",
+    "date": "2026-10-03",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FOM/US Birthday",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008236217",
+    "date": "2026-10-03",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FOM Canvas Promo",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007635400",
+    "date": "2026-10-04",
+    "channel": "email",
+    "app": "photo-art",
+    "title": "FOM",
+    "audience": "US/UK/FR/DE/IT/ES/IE",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008347122",
+    "date": "2026-10-04",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "Sweeps",
+    "audience": "UK - FOM",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007802218",
+    "date": "2026-10-04",
+    "channel": "email",
+    "app": "ink",
+    "title": "Halloween",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008286782",
+    "date": "2026-10-04",
+    "channel": "push",
+    "app": "ink",
+    "title": "Halloween (includes Reminder and Day-off PUSH)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008334661",
+    "date": "2026-10-04",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "FOM/US Birthday",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007961404",
+    "date": "2026-10-05",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "My Deals",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL/BE/PL"
+  },
+  {
+    "id": "touch-1793008303739",
+    "date": "2026-10-05",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "My Deals Big Canvas Event",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL/BE/AT",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008277403",
+    "date": "2026-10-06",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "FOM (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008423878",
+    "date": "2026-10-07",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "My Deals",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL/BE/PL"
+  },
+  {
+    "id": "touch-1793008471997",
+    "date": "2026-10-07",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "My Deals Big Canvas Event",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL/BE/AT",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008127047",
+    "date": "2026-10-08",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Seasonal (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008317338",
+    "date": "2026-10-08",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Seasonal (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008149315",
+    "date": "2026-10-09",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Sweeps Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008117532",
+    "date": "2026-10-10",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "TMT",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793007628266",
+    "date": "2026-10-10",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Promo Standalone 9x12 Canvas",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008553815",
+    "date": "2026-10-11",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "TMT",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008451105",
+    "date": "2026-10-11",
+    "channel": "push",
+    "app": "photo-tiles",
+    "title": "Intro to PB",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793008440450",
+    "date": "2026-10-11",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to PB",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008112604",
+    "date": "2026-10-12",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "US/FR/DE/IT/ES/IE/NL"
+  },
+  {
+    "id": "touch-1793007959323",
+    "date": "2026-10-12",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793007672126",
+    "date": "2026-10-12",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Calendars",
+    "audience": "CA/UK/FR/DE/IT/ES/IE/AT",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007660289",
+    "date": "2026-10-13",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Claim $10GC",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007704695",
+    "date": "2026-10-14",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Make-A-Gift (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007670221",
+    "date": "2026-10-14",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Make-A-Gift (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008292833",
+    "date": "2026-10-14",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Sweeps Standalone",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008064714",
+    "date": "2026-10-15",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "Premade",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1793008550623",
+    "date": "2026-10-15",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "Premade",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007608852",
+    "date": "2026-10-15",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FP Cards",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007574179",
+    "date": "2026-10-15",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FREE 5x7",
+    "audience": "FR",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008115149",
+    "date": "2026-10-15",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "App Uninstall Email",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007829064",
+    "date": "2026-10-16",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to PT",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793008515120",
+    "date": "2026-10-16",
+    "channel": "push",
+    "app": "ink",
+    "title": "Halloween is Coming Up",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007970516",
+    "date": "2026-10-17",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793007638080",
+    "date": "2026-10-17",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to FP Gifts",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008267533",
+    "date": "2026-10-17",
+    "channel": "email",
+    "app": "ink",
+    "title": "Halloween",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007762618",
+    "date": "2026-10-17",
+    "channel": "push",
+    "app": "ink",
+    "title": "Halloween (includes Reminder and Day-off PUSH)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007943791",
+    "date": "2026-10-17",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FP Gifts",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007865464",
+    "date": "2026-10-17",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Canvas Mid-Month Incentive",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008345502",
+    "date": "2026-10-18",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "MAB (8AM local all regions)",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008282633",
+    "date": "2026-10-19",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "US/FR/DE/IT/ES/IE/NL"
+  },
+  {
+    "id": "touch-1793008342371",
+    "date": "2026-10-19",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008261087",
+    "date": "2026-10-20",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Claim $10GC",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008263681",
+    "date": "2026-10-21",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to PT",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008463279",
+    "date": "2026-10-22",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "US/FR/DE/IT/ES/IE/NL"
+  },
+  {
+    "id": "touch-1793008521716",
+    "date": "2026-10-23",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to FPA",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793008359883",
+    "date": "2026-10-23",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FPA",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008507824",
+    "date": "2026-10-24",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Sweeps Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008506304",
+    "date": "2026-10-25",
+    "channel": "push",
+    "app": "photo-tiles",
+    "title": "EOM",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793007733695",
+    "date": "2026-10-25",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008431339",
+    "date": "2026-10-25",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007945461",
+    "date": "2026-10-25",
+    "channel": "email",
+    "app": "photo-tiles",
+    "title": "EOM",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008463880",
+    "date": "2026-10-27",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "TMT",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793007796471",
+    "date": "2026-10-27",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "EOM Canvas Promo",
+    "audience": "US/UK/FR",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008220613",
+    "date": "2026-10-27",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008562145",
+    "date": "2026-10-28",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "EOM",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1793008225713",
+    "date": "2026-10-28",
+    "channel": "email",
+    "app": "photo-art",
+    "title": "EOM",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008410703",
+    "date": "2026-10-28",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "EOM",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008061190",
+    "date": "2026-10-28",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "Sweeps",
+    "audience": "UK - EOM",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007765875",
+    "date": "2026-10-28",
+    "channel": "push",
+    "app": "cards-uk",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008522109",
+    "date": "2026-10-29",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM Canvas Promo",
+    "audience": "UK/FR"
+  },
+  {
+    "id": "touch-1793008055618",
+    "date": "2026-10-29",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM Keyring Promo",
+    "audience": "DE/IT/ES/IE/NL"
+  },
+  {
+    "id": "touch-1793008549265",
+    "date": "2026-10-29",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM A",
+    "audience": "UK/EU"
+  },
+  {
+    "id": "touch-1793007823663",
+    "date": "2026-10-29",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding EOM (8 or 8:30am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007931128",
+    "date": "2026-10-29",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding Final Day (11am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007958144",
+    "date": "2026-10-29",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007584121",
+    "date": "2026-10-30",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM (US/CA only)",
+    "audience": "US/CA"
+  },
+  {
+    "id": "touch-1793007984297",
+    "date": "2026-10-30",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM Canvas Promo",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008489450",
+    "date": "2026-10-30",
+    "channel": "push",
+    "app": "ink",
+    "title": "Halloween (includes Reminder and Day-off PUSH)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007907575",
+    "date": "2026-10-31",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM Canvas Promo",
+    "audience": "UK/FR"
+  },
+  {
+    "id": "touch-1793007905518",
+    "date": "2026-10-31",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM Keyring Promo",
+    "audience": "DE/IT/ES/IE/NL"
+  },
+  {
+    "id": "touch-1793007856956",
+    "date": "2026-10-31",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM B",
+    "audience": "UK/EU"
+  },
+  {
+    "id": "touch-1793008208588",
+    "date": "2026-10-31",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "EOM Reminder",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008341118",
+    "date": "2026-10-31",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding EOM (8 or 8:30am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007800521",
+    "date": "2026-10-31",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding Final Day (11am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007628630",
+    "date": "2026-10-31",
+    "channel": "push",
+    "app": "ink",
+    "title": "Halloween (includes Reminder and Day-off PUSH)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008277995",
+    "date": "2026-10-31",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "EOM Reminder",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008281225",
+    "date": "2026-10-31",
+    "channel": "email",
+    "app": "photo-tiles",
+    "title": "Reminder",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267317136",
+    "date": "2026-11-01",
+    "channel": "email",
+    "app": "photo-art",
+    "title": "AI Standalone",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267464115",
+    "date": "2026-11-01",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "AI Standalone",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267786046",
+    "date": "2026-11-01",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267346584",
+    "date": "2026-11-01",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FREE 5x7",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267290819",
+    "date": "2026-11-02",
+    "channel": "email",
+    "app": "photo-tiles",
+    "title": "FOM",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267129500",
+    "date": "2026-11-03",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Baubles/Ornaments",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267125120",
+    "date": "2026-11-03",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "FOM (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267355779",
+    "date": "2026-11-04",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Retro Prints Standalone",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267946245",
+    "date": "2026-11-05",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "FOM/US Birthday",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267097211",
+    "date": "2026-11-05",
+    "channel": "email",
+    "app": "ink",
+    "title": "Holiday Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267709165",
+    "date": "2026-11-05",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267303381",
+    "date": "2026-11-05",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "FOM/US Birthday",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267853011",
+    "date": "2026-11-06",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "FOM (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267249468",
+    "date": "2026-11-06",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FOM/US Birthday",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267348672",
+    "date": "2026-11-07",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Retro Prints",
+    "audience": "CA/UK/FR/DE/IT/ES/IE/NL/BE/PL/AT/SE"
+  },
+  {
+    "id": "touch-1794267533664",
+    "date": "2026-11-07",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Claim $10GC",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267851447",
+    "date": "2026-11-07",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267755079",
+    "date": "2026-11-08",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Retro Prints",
+    "audience": "CA/UK/FR/DE/IT/ES/IE/NL/BE/PL/AT/SE"
+  },
+  {
+    "id": "touch-1794267770669",
+    "date": "2026-11-08",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Retro Prints",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1794267241862",
+    "date": "2026-11-08",
+    "channel": "email",
+    "app": "photo-art",
+    "title": "FOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267498736",
+    "date": "2026-11-08",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FP Gifts",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267930459",
+    "date": "2026-11-09",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to FP Gifts",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1794268062288",
+    "date": "2026-11-09",
+    "channel": "email",
+    "app": "ink",
+    "title": "Holiday Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267897507",
+    "date": "2026-11-09",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794268052577",
+    "date": "2026-11-10",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to PT",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1794267604590",
+    "date": "2026-11-10",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267938214",
+    "date": "2026-11-10",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to PT",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794268024740",
+    "date": "2026-11-11",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "Birthday",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1794267504924",
+    "date": "2026-11-11",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "Birthday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267521834",
+    "date": "2026-11-11",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "FOM (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267877949",
+    "date": "2026-11-11",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Baubles/Ornaments",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267988056",
+    "date": "2026-11-12",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "Premade",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1794267702391",
+    "date": "2026-11-12",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "Premade",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267827628",
+    "date": "2026-11-12",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "Premade",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267895843",
+    "date": "2026-11-12",
+    "channel": "email",
+    "app": "ink",
+    "title": "Gift Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267418187",
+    "date": "2026-11-12",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267084259",
+    "date": "2026-11-12",
+    "channel": "push",
+    "app": "ink",
+    "title": "Gift Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267692872",
+    "date": "2026-11-12",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FP Cards",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267238102",
+    "date": "2026-11-12",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "App Uninstall Email",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267589068",
+    "date": "2026-11-13",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "2 Magnetic Tiles",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267258923",
+    "date": "2026-11-13",
+    "channel": "email",
+    "app": "photo-tiles",
+    "title": "MAT",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267437781",
+    "date": "2026-11-14",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Re Engagement (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267578749",
+    "date": "2026-11-14",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267281033",
+    "date": "2026-11-15",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "2 Magnetic Tiles",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1794267963784",
+    "date": "2026-11-15",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "MAB (8AM local all regions)",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267973745",
+    "date": "2026-11-15",
+    "channel": "email",
+    "app": "ink",
+    "title": "Get Gifting",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267282182",
+    "date": "2026-11-15",
+    "channel": "push",
+    "app": "ink",
+    "title": "Get Gifting",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267160342",
+    "date": "2026-11-15",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "MAB (8AM local all regions)",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267888872",
+    "date": "2026-11-16",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to Redeem their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1794267789871",
+    "date": "2026-11-16",
+    "channel": "push",
+    "app": "ink",
+    "title": "Super Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267164589",
+    "date": "2026-11-17",
+    "channel": "push",
+    "app": "photo-tiles",
+    "title": "Intro to PB",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267816521",
+    "date": "2026-11-17",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to PB",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267085864",
+    "date": "2026-11-18",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Baubles/Ornaments",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267096951",
+    "date": "2026-11-18",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Make-A-Gift (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267996755",
+    "date": "2026-11-18",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Make-A-Gift (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267412303",
+    "date": "2026-11-18",
+    "channel": "email",
+    "app": "ink",
+    "title": "Super Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267973034",
+    "date": "2026-11-18",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267660057",
+    "date": "2026-11-19",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to FPA",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1794267164329",
+    "date": "2026-11-19",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FPA",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267171257",
+    "date": "2026-11-20",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Baubles/Ornaments",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794268019062",
+    "date": "2026-11-20",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267581152",
+    "date": "2026-11-20",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Holiday Cards",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267744100",
+    "date": "2026-11-21",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267848528",
+    "date": "2026-11-22",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Baubles/Ornaments",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267616745",
+    "date": "2026-11-22",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding EOM (8 or 8:30am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267199225",
+    "date": "2026-11-22",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Black Friday Offer (8 or 8:30am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267925722",
+    "date": "2026-11-22",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding Final Day (11am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267938164",
+    "date": "2026-11-22",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Black Friday Offer (11am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267764796",
+    "date": "2026-11-23",
+    "channel": "email",
+    "app": "ink",
+    "title": "Black Friday",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267719171",
+    "date": "2026-11-23",
+    "channel": "push",
+    "app": "ink",
+    "title": "Black Friday",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267728997",
+    "date": "2026-11-23",
+    "channel": "push",
+    "app": "ink",
+    "title": "Ink Cross Sell",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267663379",
+    "date": "2026-11-23",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "My Deals Holiday Savings Spectacular (BR Promo)",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794268001691",
+    "date": "2026-11-24",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "BF Promo /",
+    "audience": "US/CA"
+  },
+  {
+    "id": "touch-1794267581285",
+    "date": "2026-11-24",
+    "channel": "email",
+    "app": "photo-art",
+    "title": "BF/EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267148196",
+    "date": "2026-11-24",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "EOM/BF",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267637877",
+    "date": "2026-11-24",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "EOM",
+    "audience": "PL/SE",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267356856",
+    "date": "2026-11-24",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "EOM - BF",
+    "audience": "All(NO PL/SE)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267253036",
+    "date": "2026-11-24",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "BF Promo /",
+    "audience": "US/CA"
+  },
+  {
+    "id": "touch-1794267864674",
+    "date": "2026-11-24",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "EOM",
+    "audience": "PL/SE",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267690558",
+    "date": "2026-11-24",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "EOM - BF",
+    "audience": "All(NO PL/SE)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794268079075",
+    "date": "2026-11-24",
+    "channel": "push",
+    "app": "cards-uk",
+    "title": "BF Promo /",
+    "audience": "US/CA"
+  },
+  {
+    "id": "touch-1794267744804",
+    "date": "2026-11-24",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "EOM",
+    "audience": "PL/SE",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267898921",
+    "date": "2026-11-24",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "EOM - BF",
+    "audience": "All(NO PL/SE)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267253472",
+    "date": "2026-11-25",
+    "channel": "push",
+    "app": "photo-tiles",
+    "title": "EOM - BF Special",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267974413",
+    "date": "2026-11-25",
+    "channel": "push",
+    "app": "photo-tiles",
+    "title": "EOM",
+    "audience": "PL/SE"
+  },
+  {
+    "id": "touch-1794267937819",
+    "date": "2026-11-25",
+    "channel": "push",
+    "app": "easy-tiles",
+    "title": "BF Special",
+    "audience": "US/UK"
+  },
+  {
+    "id": "touch-1794267942576",
+    "date": "2026-11-25",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267608316",
+    "date": "2026-11-25",
+    "channel": "email",
+    "app": "photo-tiles",
+    "title": "EOM - BF Special",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267487352",
+    "date": "2026-11-26",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "BF Promo /",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267711412",
+    "date": "2026-11-26",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "EOM",
+    "audience": "PL/SE"
+  },
+  {
+    "id": "touch-1794267218062",
+    "date": "2026-11-26",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "BF Promo /",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267175827",
+    "date": "2026-11-26",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "EOM",
+    "audience": "PL/SE",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267168853",
+    "date": "2026-11-26",
+    "channel": "push",
+    "app": "cards-uk",
+    "title": "BF Promo /",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267491615",
+    "date": "2026-11-26",
+    "channel": "push",
+    "app": "cards-uk",
+    "title": "EOM",
+    "audience": "PL/SE",
+    "warm": true
+  },
+  {
+    "id": "touch-1794268020866",
+    "date": "2026-11-27",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM + Black Friday PUSH",
+    "audience": "US/CA"
+  },
+  {
+    "id": "touch-1794267559880",
+    "date": "2026-11-27",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM A",
+    "audience": "CA/PL/SE"
+  },
+  {
+    "id": "touch-1794267363599",
+    "date": "2026-11-27",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM A + Black Friday",
+    "audience": "UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794280806686",
+    "date": "2026-11-27",
+    "channel": "asset",
+    "app": "my-deals",
+    "title": "Black Friday",
+    "audience": "US, CA, UK, FR, IT, IE, ES, DE, AT, BE"
+  },
+  {
+    "id": "touch-1794267908712",
+    "date": "2026-11-28",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "EOM/BF",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267798879",
+    "date": "2026-11-28",
+    "channel": "email",
+    "app": "ink",
+    "title": "Black Friday",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267332799",
+    "date": "2026-11-28",
+    "channel": "push",
+    "app": "ink",
+    "title": "Black Friday",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267531558",
+    "date": "2026-11-28",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "BF Reminder",
+    "audience": "All(NO PL/SE)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267194904",
+    "date": "2026-11-29",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM B + Black Friday",
+    "audience": "US/UK/FR/DE/IT/ES/IE/NL/BE/AT"
+  },
+  {
+    "id": "touch-1794267247960",
+    "date": "2026-11-29",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM B",
+    "audience": "CA/PL/SE"
+  },
+  {
+    "id": "touch-1794267421416",
+    "date": "2026-11-29",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Black Friday Offer (8 or 8:30am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267609687",
+    "date": "2026-11-29",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Black Friday Offer (11am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267873483",
+    "date": "2026-11-30",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM C + Cyber Monday Deal",
+    "audience": "All(NO PL/SE)"
+  },
+  {
+    "id": "touch-1794267648171",
+    "date": "2026-11-30",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM C",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1794268078741",
+    "date": "2026-11-30",
+    "channel": "push",
+    "app": "easy-tiles",
+    "title": "Makes a Great Gift",
+    "audience": "US/UK"
+  },
+  {
+    "id": "touch-1794267414247",
+    "date": "2026-11-30",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding EOM (8 or 8:30am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267257625",
+    "date": "2026-11-30",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding Final Day (11am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267521955",
+    "date": "2026-11-30",
+    "channel": "push",
+    "app": "ink",
+    "title": "Ink Cross Sell",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267086721",
+    "date": "2026-11-30",
+    "channel": "push",
+    "app": "ink",
+    "title": "Cyber Monday",
+    "warm": true
+  },
+  {
+    "id": "touch-1794267150736",
+    "date": "2026-11-30",
+    "channel": "email",
+    "app": "easy-tiles",
+    "title": "Email",
+    "audience": "US/UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1794280840818",
+    "date": "2026-11-30",
+    "channel": "asset",
+    "app": "my-deals",
+    "title": "Cyber Monday",
+    "audience": "US, CA, UK, FR, IT, IE, ES, DE, AT, BE"
+  },
+  {
+    "id": "touch-1793007934910",
+    "date": "2026-12-01",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "FOM",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1793008379507",
+    "date": "2026-12-01",
+    "channel": "email",
+    "app": "photo-art",
+    "title": "FOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008647658",
+    "date": "2026-12-01",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "FOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008827048",
+    "date": "2026-12-01",
+    "channel": "email",
+    "app": "ink",
+    "title": "Cyber Monday",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008059624",
+    "date": "2026-12-01",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "FOM/US Birthday",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1794280864947",
+    "date": "2026-12-01",
+    "channel": "asset",
+    "app": "my-deals",
+    "title": "Cyber Week",
+    "audience": "US, CA, UK, FR, IT, IE, ES, DE, AT, BE"
+  },
+  {
+    "id": "touch-1793008765835",
+    "date": "2026-12-02",
+    "channel": "push",
+    "app": "photo-tiles",
+    "title": "CM Last Day",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793008285750",
+    "date": "2026-12-02",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "FOM (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008352708",
+    "date": "2026-12-02",
+    "channel": "email",
+    "app": "photo-tiles",
+    "title": "FOM",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008645030",
+    "date": "2026-12-03",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Pen Standalone",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008682367",
+    "date": "2026-12-03",
+    "channel": "email",
+    "app": "ink",
+    "title": "Card Pack Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008476901",
+    "date": "2026-12-03",
+    "channel": "push",
+    "app": "ink",
+    "title": "Card Pack Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008126603",
+    "date": "2026-12-03",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Delivery",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008657074",
+    "date": "2026-12-03",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008018434",
+    "date": "2026-12-04",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Calendars",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008836363",
+    "date": "2026-12-04",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Calendars",
+    "audience": "UK/FR/DE/IT/ES/IE/AT"
+  },
+  {
+    "id": "touch-1793008598174",
+    "date": "2026-12-04",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Promo Standalone Pen",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008216371",
+    "date": "2026-12-05",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to Redeem their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793007954402",
+    "date": "2026-12-05",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to CLAIM their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008621486",
+    "date": "2026-12-05",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FOM/US Birthday",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008233555",
+    "date": "2026-12-05",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FOM Pen Promo",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008729483",
+    "date": "2026-12-06",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Pen Standalone",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008416389",
+    "date": "2026-12-06",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Seasonal (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008232697",
+    "date": "2026-12-06",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Seasonal (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008277208",
+    "date": "2026-12-06",
+    "channel": "email",
+    "app": "ink",
+    "title": "Card Pack Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008698492",
+    "date": "2026-12-06",
+    "channel": "push",
+    "app": "ink",
+    "title": "Card Pack Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008427423",
+    "date": "2026-12-07",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "FR"
+  },
+  {
+    "id": "touch-1793008749851",
+    "date": "2026-12-07",
+    "channel": "email",
+    "app": "photo-art",
+    "title": "Art Prints",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008336700",
+    "date": "2026-12-07",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "FOM (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008589646",
+    "date": "2026-12-07",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FP Cards",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008836936",
+    "date": "2026-12-07",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Promo Standalone 9x12 Canvas",
+    "audience": "FR",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008232294",
+    "date": "2026-12-08",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to FP Cards",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008782788",
+    "date": "2026-12-08",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008335101",
+    "date": "2026-12-08",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "Art Prints",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008014981",
+    "date": "2026-12-08",
+    "channel": "email",
+    "app": "ink",
+    "title": "Holiday Cards Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008475137",
+    "date": "2026-12-08",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008580829",
+    "date": "2026-12-08",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007938466",
+    "date": "2026-12-08",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Promo Standalone 9x12 Canvas",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008558776",
+    "date": "2026-12-09",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "FR"
+  },
+  {
+    "id": "touch-1793008438048",
+    "date": "2026-12-09",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to FP Cards",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793007953881",
+    "date": "2026-12-09",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to FP Gifts",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008360735",
+    "date": "2026-12-09",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Seasonal (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008221662",
+    "date": "2026-12-09",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Seasonal (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008611148",
+    "date": "2026-12-09",
+    "channel": "push",
+    "app": "ink",
+    "title": "Christmas Card Day",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008612144",
+    "date": "2026-12-09",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Promo Standalone 9x12 Canvas",
+    "audience": "FR",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008773846",
+    "date": "2026-12-09",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FP Gifts",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008192578",
+    "date": "2026-12-10",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to Redeem their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793007911256",
+    "date": "2026-12-10",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to CLAIM their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008267937",
+    "date": "2026-12-10",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793007916758",
+    "date": "2026-12-10",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "Art Prints",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008412357",
+    "date": "2026-12-10",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Promo Standalone 9x12 Canvas",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008836943",
+    "date": "2026-12-10",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Calendars",
+    "audience": "UK/FR/DE/IT/ES/IE/AT",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008189996",
+    "date": "2026-12-11",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008487390",
+    "date": "2026-12-11",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "Birthday",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008016132",
+    "date": "2026-12-11",
+    "channel": "email",
+    "app": "ink",
+    "title": "Holiday Cards Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008278873",
+    "date": "2026-12-11",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008444318",
+    "date": "2026-12-11",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008418406",
+    "date": "2026-12-11",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Promo Standalone 9x12 Canvas",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008506584",
+    "date": "2026-12-11",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "My Deals Big Canvas Event",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008331544",
+    "date": "2026-12-12",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Calendars",
+    "audience": "UK/FR/DE/IT/ES/IE/AT"
+  },
+  {
+    "id": "touch-1793008414098",
+    "date": "2026-12-12",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to Redeem their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008193486",
+    "date": "2026-12-12",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to CLAIM their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008570644",
+    "date": "2026-12-12",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008497205",
+    "date": "2026-12-12",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "Get It Before Xmas (send at 2pm)",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008679676",
+    "date": "2026-12-12",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "Make-A-Gift (8 or 8:30am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007927815",
+    "date": "2026-12-12",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Make-A-Gift (11am)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008640601",
+    "date": "2026-12-13",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to Redeem their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793007920097",
+    "date": "2026-12-13",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "FP-PA $10 Gift Card Reminder to CLAIM their card",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793007974155",
+    "date": "2026-12-13",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Canvas Standalone",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008324016",
+    "date": "2026-12-13",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "My Deals",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008386766",
+    "date": "2026-12-13",
+    "channel": "email",
+    "app": "ink",
+    "title": "Holiday Cards Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008712655",
+    "date": "2026-12-13",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007983546",
+    "date": "2026-12-13",
+    "channel": "push",
+    "app": "ink",
+    "title": "Holiday Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008607049",
+    "date": "2026-12-13",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Promo Standalone 9x12 Canvas",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008246744",
+    "date": "2026-12-13",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to PB",
+    "audience": "US/CA/FR/DE/IT/ES/IE/NL/BE/PL/AT/SE",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008255296",
+    "date": "2026-12-13",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "MAB (8AM local all regions)",
+    "audience": "US/CA/FR/DE/IT/ES/IE/NL/BE/PL/AT/SE",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007974382",
+    "date": "2026-12-14",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "My Deals",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008556583",
+    "date": "2026-12-14",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to PB",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008145834",
+    "date": "2026-12-14",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "MAB (8AM local all regions)",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008403384",
+    "date": "2026-12-15",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "Calendar Standalone",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008596106",
+    "date": "2026-12-15",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "FP-PA Holiday",
+    "audience": "US",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008145094",
+    "date": "2026-12-15",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "My Deals Big Canvas Event",
+    "audience": "UK",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008595637",
+    "date": "2026-12-16",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to PB",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1793008212713",
+    "date": "2026-12-16",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "Premade",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793008199413",
+    "date": "2026-12-16",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "Premade",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007964686",
+    "date": "2026-12-17",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Calendars",
+    "audience": "US"
+  },
+  {
+    "id": "touch-1793008762459",
+    "date": "2026-12-17",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Calendars",
+    "audience": "UK/FR/DE/IT/ES/IE/AT"
+  },
+  {
+    "id": "touch-1793007923715",
+    "date": "2026-12-17",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to PT",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793008482464",
+    "date": "2026-12-17",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to PT",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008421390",
+    "date": "2026-12-17",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "App Uninstall Email",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008007251",
+    "date": "2026-12-18",
+    "channel": "email",
+    "app": "ink",
+    "title": "New Year Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008348454",
+    "date": "2026-12-18",
+    "channel": "push",
+    "app": "ink",
+    "title": "New Year Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008278261",
+    "date": "2026-12-18",
+    "channel": "push",
+    "app": "ink",
+    "title": "New Year",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008637512",
+    "date": "2026-12-19",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "Premade",
+    "audience": "CA"
+  },
+  {
+    "id": "touch-1793008506969",
+    "date": "2026-12-19",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "Premade",
+    "audience": "CA",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008194555",
+    "date": "2026-12-20",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Intro to FPA",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793007993711",
+    "date": "2026-12-20",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "Intro to FPA",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008314251",
+    "date": "2026-12-22",
+    "channel": "email",
+    "app": "cards-uk",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007919604",
+    "date": "2026-12-22",
+    "channel": "email",
+    "app": "photo-books",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008552790",
+    "date": "2026-12-23",
+    "channel": "push",
+    "app": "photo-tiles",
+    "title": "EOM",
+    "audience": "All (No CA)"
+  },
+  {
+    "id": "touch-1793008619881",
+    "date": "2026-12-23",
+    "channel": "email",
+    "app": "ink",
+    "title": "New Year Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1793007953433",
+    "date": "2026-12-23",
+    "channel": "push",
+    "app": "ink",
+    "title": "New Year Cards",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008612883",
+    "date": "2026-12-23",
+    "channel": "push",
+    "app": "ink",
+    "title": "New Year",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008369555",
+    "date": "2026-12-23",
+    "channel": "email",
+    "app": "photo-tiles",
+    "title": "EOM",
+    "audience": "All (No CA)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008303107",
+    "date": "2026-12-26",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Boxing Day",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008344065",
+    "date": "2026-12-26",
+    "channel": "email",
+    "app": "ink",
+    "title": "After Christmas Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008223776",
+    "date": "2026-12-26",
+    "channel": "push",
+    "app": "ink",
+    "title": "After Christmas Sale",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008760572",
+    "date": "2026-12-27",
+    "channel": "email",
+    "app": "freeprints",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008754438",
+    "date": "2026-12-28",
+    "channel": "push",
+    "app": "photo-books",
+    "title": "EOM",
+    "audience": "All"
+  },
+  {
+    "id": "touch-1793008328143",
+    "date": "2026-12-28",
+    "channel": "email",
+    "app": "photo-art",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008425763",
+    "date": "2026-12-28",
+    "channel": "push",
+    "app": "photo-art",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008296868",
+    "date": "2026-12-28",
+    "channel": "push",
+    "app": "cards-uk",
+    "title": "EOM",
+    "audience": "All",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008513320",
+    "date": "2026-12-29",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM A",
+    "audience": "UK/EU"
+  },
+  {
+    "id": "touch-1793008353191",
+    "date": "2026-12-29",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding EOM (8 or 8:30am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008036405",
+    "date": "2026-12-29",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding Final Day (11am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008642400",
+    "date": "2026-12-30",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "Boxing Day",
+    "audience": "UK"
+  },
+  {
+    "id": "touch-1793008386420",
+    "date": "2026-12-30",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM (US/CA only)",
+    "audience": "US/CA"
+  },
+  {
+    "id": "touch-1793008527796",
+    "date": "2026-12-31",
+    "channel": "push",
+    "app": "freeprints",
+    "title": "EOM B",
+    "audience": "UK/EU"
+  },
+  {
+    "id": "touch-1793008532520",
+    "date": "2026-12-31",
+    "channel": "email",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding EOM (8 or 8:30am local time)",
+    "warm": true
+  },
+  {
+    "id": "touch-1793008749891",
+    "date": "2026-12-31",
+    "channel": "push",
+    "app": "freeprints-gifts",
+    "title": "EOM & Onboarding Final Day (11am local time)",
+    "warm": true
+  }
+]

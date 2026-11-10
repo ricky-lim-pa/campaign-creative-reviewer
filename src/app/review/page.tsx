@@ -1,4 +1,5 @@
 import { ReviewCampaignBoard } from "@/components/ReviewCampaignBoard";
+import { ReviewTabs } from "@/components/ReviewTabs";
 import { prisma, ensureSettings } from "@/lib/db";
 import { isCampaignApproved } from "@/lib/approvals";
 import { mockupsForApproval } from "@/lib/creatives";
@@ -42,6 +43,7 @@ export default async function ReviewHomePage() {
   return (
     <div className="hub-page bg-hub-cream">
       <main className="hub-container hub-main pb-8">
+        <ReviewTabs active="review" />
         <ReviewCampaignBoard rows={campaigns} />
       </main>
     </div>
