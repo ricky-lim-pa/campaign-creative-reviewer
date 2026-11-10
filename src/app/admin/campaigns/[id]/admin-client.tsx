@@ -61,11 +61,19 @@ export default function AdminCampaignPage() {
   const [loading, setLoading] = useState(false);
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
-    const res = await fetch(`/api/campaigns/${params.id}`);
-    if (!res.ok) return;
-    const data = await res.json();
+    setLoadError(null);
+    let data: Campaign;
+    try {
+      const res = await fetch(`/api/campaigns/${params.id}`, { signal: AbortSignal.timeout(15_000) });
+      if (!res.ok) throw new Error(`Campaign request returned ${res.status}`);
+      data = await res.json();
+    } catch {
+      setLoadError("Could not load this campaign. Check that the local admin is running and try again.");
+      return;
+    }
     setCampaign(data);
     const board = await loadReviewBoard(true);
     setCampaign((current) => current === data ? mergeCampaignReview(data, board) : current);
@@ -126,6 +134,14 @@ export default function AdminCampaignPage() {
     [campaign]
   );
 
+  if (loadError) {
+    return (
+      <main className="hub-container hub-main">
+        <p role="alert" className="text-hub-muted">{loadError}</p>
+        <button type="button" className="hub-btn mt-4" onClick={load}>Try again</button>
+      </main>
+    );
+  }
   if (!campaign) return <p className="p-8 text-hub-muted">Loading...</p>;
 
   const app = APPS.find((a) => a.id === campaign.appId);
