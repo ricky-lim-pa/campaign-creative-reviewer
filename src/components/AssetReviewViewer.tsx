@@ -6,11 +6,6 @@ import { CampaignCompleteModal } from "@/components/CampaignCompleteModal";
 import { pickRandomCampaignAffirmation, type ApprovalAffirmation } from "@/lib/approvalAffirmations";
 import { mockupsForApproval } from "@/lib/creatives";
 
-// The November Special Offer replaced these two Cyber Week placements. Admin still keeps their history.
-const retiredReviewVersions = new Set([
-  "cmvrei56h0008qajga5eh0xtd",
-  "cmvrei56t000bqajg6vmsm932",
-]);
 
 type ReviewMockup = {
   id: string;
@@ -62,7 +57,7 @@ export function AssetReviewViewer({
       mockupsForApproval([...mockups])
         .map((mockup) => ({
           ...mockup,
-          versions: mockup.versions.filter((version) => !retiredReviewVersions.has(version.id)),
+          versions: mockup.versions.slice(0, 1),
         }))
         .filter((mockup) => mockup.versions.length > 0)
         .sort((a, b) => a.sortOrder - b.sortOrder),

@@ -449,7 +449,6 @@ export function ExecReviewStage({
       <div className="flex flex-wrap items-center gap-1.5">
         <span className="hub-badge">{typeLabel}</span>
         {hasMockupLabel(label) ? <span className="hub-badge">{label}</span> : null}
-        <span className="hub-badge">v{activeVersion.version}</span>
         {isLatest ? <DualApprovalBadge approval={approval} /> : null}
       </div>
       <h3
